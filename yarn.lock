@@ -903,7 +903,7 @@
   dependencies:
     acorn "^8.0.5"
 
-"@symfony/webpack-encore@^1.0.0":
+"@symfony/webpack-encore@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@symfony/webpack-encore/-/webpack-encore-1.1.2.tgz#fd5122b97e8d106b71440b0e2c397b8111f1e3ce"
   integrity sha512-RkgMBfU3ZliPcvCI/68Rh2qCd1LHZ5HcwSUZifErTWaNigrdK+kSbOkA6JOPbO0DI6w0PiVK3GZU5hv2aC1z3A==
@@ -1435,6 +1435,18 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+autoprefixer@^10.2.5:
+  version "10.2.5"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.5.tgz#096a0337dbc96c0873526d7fef5de4428d05382d"
+  integrity sha512-7H4AJZXvSsn62SqZyJCP+1AWwOuoYpUfK6ot9vm0e87XD6mT8lDywc9D9OTJPMULyGcvmIxzTAMeG2Cc+YX+fA==
+  dependencies:
+    browserslist "^4.16.3"
+    caniuse-lite "^1.0.30001196"
+    colorette "^1.2.2"
+    fraction.js "^4.0.13"
+    normalize-range "^0.1.2"
+    postcss-value-parser "^4.1.0"
+
 available-typed-arrays@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.2.tgz#6b098ca9d8039079ee3f77f7b783c4480ba513f5"
@@ -1697,6 +1709,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001181:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001202.tgz#4cb3bd5e8a808e8cd89e4e66c549989bc8137201"
   integrity sha512-ZcijQNqrcF8JNLjzvEiXqX4JUYxoZa7Pvcsd9UD8Kz4TvhTonOSNRsK+qtvpVL4l6+T1Rh4LFtLfnNWg6BGWCQ==
 
+caniuse-lite@^1.0.30001196:
+  version "1.0.30001203"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001203.tgz#a7a34df21a387d9deffcd56c000b8cf5ab540580"
+  integrity sha512-/I9tvnzU/PHMH7wBPrfDMSuecDeUKerjCPX7D0xBbaJZPxoT9m+yYxt0zCTkcijCkjTdim3H56Zm0i5Adxch4w==
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
@@ -1958,7 +1975,7 @@ core-js-compat@^3.8.1, core-js-compat@^3.9.0:
     browserslist "^4.16.3"
     semver "7.0.0"
 
-core-js@^3.0.0:
+core-js@^3.9.1:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.9.1.tgz#cec8de593db8eb2a85ffb0dbdeb312cb6e5460ae"
   integrity sha512-gSjRvzkxQc1zjM/5paAmL4idJBFzuJoo+jDjF1tStYFMV2ERfD02HhahhCGXUyHxQRG4yFKVSdO6g62eoRMcDg==
@@ -2826,6 +2843,11 @@ forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
+
+fraction.js@^4.0.13:
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.0.13.tgz#3c1c315fa16b35c85fffa95725a36fa729c69dfe"
+  integrity sha512-E1fz2Xs9ltlUp+qbiyx9wmt2n9dRzPsS11Jtdb8D2o+cC7wr9xkkKsVKJuBX0ST+LVS+LhLO+SbLJNtfWcJvXA==
 
 fresh@0.5.2:
   version "0.5.2"
@@ -4149,6 +4171,11 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
+normalize-range@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
+  integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
+
 normalize-url@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
@@ -4590,13 +4617,15 @@ postcss-js@^3.0.3:
     camelcase-css "^2.0.1"
     postcss "^8.1.6"
 
-postcss-loader@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-5.2.0.tgz#ccd6668a778902d653602289c765a8bc481986dc"
-  integrity sha512-uSuCkENFeUaOYsKrXm0eNNgVIxc71z8RcckLMbVw473rGojFnrUeqEz6zBgXsH2q1EIzXnO/4pEz9RhALjlITA==
+postcss-loader@^4.0.3:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-4.2.0.tgz#f6993ea3e0f46600fb3ee49bbd010448123a7db4"
+  integrity sha512-mqgScxHqbiz1yxbnNcPdKYo/6aVt+XExURmEbQlviFVWogDbM4AJ0A/B+ZBpYsJrTRxKw7HyRazg9x0Q9SWwLA==
   dependencies:
     cosmiconfig "^7.0.0"
     klona "^2.0.4"
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
     semver "^7.3.4"
 
 postcss-merge-longhand@^4.0.11:
@@ -4881,7 +4910,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.27:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.8:
+postcss@^8.1.14, postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.8:
   version "8.2.8"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.8.tgz#0b90f9382efda424c4f0f69a2ead6f6830d08ece"
   integrity sha512-1F0Xb2T21xET7oQV9eKuctbM9S7BC0fetoHCc4H13z0PT6haiRLP4T0ZY4XWh7iLP0usgqykT6p9B2RtOf4FPw==
@@ -5848,7 +5877,7 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tailwindcss@^2.0.0:
+tailwindcss@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-2.0.4.tgz#cf13e62738c3a27065664e449d93b66ee2945506"
   integrity sha512-WhgR0oiBxGOZ9jY0yVfaJCHnckR7U74Fs/BMsYxGdwGJQ5Hd/HlaKD26bEJFZOvYScJo0QcUj2ImldzedsG7Bw==
