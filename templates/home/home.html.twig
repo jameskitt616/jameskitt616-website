@@ -1,4 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="p-5">
+        <strong>Ze is our sponser, he is the best, brightest, greatest, most amazing, nothing beats his power and glorry and fame, his looks are unrivaled</strong>
+
+        <div>
+            Welcome to jameskitt616's Website<br><br>
+
+            * Gitlab: https://gitlab.com/jameskitt616/jameskitt616-website<br><br>
+
+            <div>
+                <div class="w-96 flex">
+                    <div class="w-1/2">System load: 1.35</div>
+                    <div class="w-1/2">Processes: 268</div>
+                </div>
+                <div class="w-96 flex">
+                    <div class="w-1/2">Usage of /: 23.3%</div>
+                    <div class="w-1/2">Users logged in: 0</div>
+                </div>
+                <div class="w-96 flex">
+                    <div class="w-1/2">Memory usage: 47%</div>
+                    <div class="w-1/2">Swap usage: 10%</div>
+                </div>
+            </div>
+            <br>
+            42 updates can be installed immediately.<br>
+            0 of these updates are security updates.<br><br>
+
+{#            TODO: get current date #}
+            Last login: Sun May 4 00:00:00 1977 from 127.0.0.1<br>
+
+            <strong>help</strong> for help<br>
+        </div>
+        <div id="typingContainer">
+            <span class="pr-1">
+                <span class="text-green-600">haxxor@jameskitt616</span>:~$
+            </span>
+            <span id="inputCommand" class="pr-5" data-url="{{ path('test') }}" contentEditable="true" autofocus></span>
+            {# <span class="input-cursor"></span> #}
+            {# https://codepen.io/josephwong2004/pen/ExgoKde #}
+        </div>
+    </div>
 {% endblock %}

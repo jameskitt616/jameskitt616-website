@@ -3,3 +3,29 @@
 @tailwind components;
 
 @tailwind utilities;
+
+$size: 15px;
+body {
+  font-size: $size;
+
+  .input-cursor {
+    display: inline-block;
+    width: 2px;
+    height: $size;
+    background-color: white;
+    margin-left: 3px;
+    animation: blink .5s linear infinite alternate;
+  }
+
+  @keyframes blink {
+    0% {opacity: 1;}
+    40% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 0;}
+  }
+}
+
+[contenteditable] {
+  outline: 0 solid transparent;
+  //caret-color: transparent;
+}
