@@ -13,13 +13,13 @@ home.init = function () {
         let key = e.which;
         if(key === 13)
         {
-            let url = $('span#inputCommand').data('url');
-            console.log(url);
+            let inputCommand = $('span#inputCommand');
+            let url = inputCommand.data('url');
 
             $.ajax({
                 url: url,
-                type: 'GET',
-                // data: {'searchTerm': searchTerm},
+                type: 'POST',
+                data: {'input': inputCommand.html()},
                 success: home.displayResult
             });
 
@@ -30,13 +30,11 @@ home.init = function () {
 
 home.displayResult = function (data) {
 
-    console.log(data)
-
     let div = document.createElement('div');
 
     div.innerHTML = `
     <span class="pr-1">
-        <span class="text-green-600">haxxor@jameskitt616</span>:~$
+        <span class="text-green-600">satoshi@jameskitt616</span>:~$
     </span>
     <span>` + data + `</span>
   `;
