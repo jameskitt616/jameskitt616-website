@@ -5,7 +5,10 @@
         <div>
             Welcome to jameskitt616's Website<br><br>
 
-            * Gitlab: https://gitlab.com/jameskitt616/jameskitt616-website<br><br>
+            * Gitlab:
+            <a target="_blank" href="https://gitlab.com/jameskitt616/jameskitt616-website" class="hover:underline">
+                https://gitlab.com/jameskitt616/jameskitt616-website
+            </a><br><br>
 
             <div>
                 <div class="w-96 flex">
@@ -29,13 +32,14 @@
 
             <strong>help</strong> for help<br>
         </div>
-        <div id="typingContainer">
-            <span class="pr-1">
-                <span class="text-green-600">satoshi@jameskitt616</span>:~$
-            </span>
-            <span id="inputCommand" class="pr-5" data-url="{{ path('resolve_input') }}" contentEditable="true" autofocus></span>
-            {# <span class="input-cursor"></span> #}
-            {# https://codepen.io/josephwong2004/pen/ExgoKde #}
+        <div id="consoleWindow">
+            <div id="pastInputs"></div>
+            <div>
+                <span class="mr-1">
+                    <span class="text-green-600">satoshi@jameskitt616</span>:~$
+                </span>
+                <span id="input" data-url="{{ path('resolve_input') }}" contentEditable="true" autofocus></span>
+            </div>
         </div>
     </div>
 {% endblock %}

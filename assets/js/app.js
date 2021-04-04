@@ -7,37 +7,45 @@ $(document).ready(function () {
 let home = {};
 
 home.init = function () {
-    $('#navbarToggle').click(home.toggleNavbar);
 
     $(window).keypress(function (e) {
         let key = e.which;
         if(key === 13)
         {
-            let inputCommand = $('span#inputCommand');
-            let url = inputCommand.data('url');
+            let input = $('span#input');
+            let url = input.data('url');
 
+            let textInput = input.html();
             $.ajax({
                 url: url,
                 type: 'POST',
-                data: {'input': inputCommand.html()},
-                success: home.displayResult
+                data: {'input': textInput},
+                success: function(data) {
+
+                    home.displayResult(data, textInput)
+                }
             });
 
             return false;
         }
     });
+
+    $('div#consoleWindow').click(function(){
+        $('#input').focus();
+    });
 };
 
-home.displayResult = function (data) {
+home.displayResult = function (data, input) {
 
     let div = document.createElement('div');
 
     div.innerHTML = `
-    <span class="pr-1">
-        <span class="text-green-600">satoshi@jameskitt616</span>:~$
-    </span>
-    <span>` + data + `</span>
+    <div class="pr-1">
+        <span class="text-green-600">satoshi@jameskitt616</span>:~$ ` + input + `
+    </div>
+    <div>` + data + `</div>
   `;
 
-    $('div#typingContainer').append(div)
+    $('div#pastInputs').append(div);
+    $('span#input').html('');
 };

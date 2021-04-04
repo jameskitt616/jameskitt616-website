@@ -30,9 +30,17 @@ final class ConsoleController extends AbstractController
     {
         $input = $request->request->get('input');
 
-        //        TODO: hide this as easter-egg? e.g. sudo shutdown...
-        return new Response('01100110 01101001 01101110 01100100 00100000 01100001 00100000 01101000 01101111 01100010 01100010 01111001 00100000 01100110 01101111 01110010 00100000 01100111 01101111 01100100 00100111 01110011 00100000 01110011 01100001 01101011 01100101', 200);
-        //        return new Response('shutdown... sudo missing (hint: very secure `password`)', 200);
-        //        return new Response('Command 'bla' not found, help for help', 200);
+        switch ($input) {
+            case '':
+                return new Response('', 200);
+            case 'sudo shutdown':
+                return new Response('01100110 01101001 01101110 01100100 00100000 01100001 00100000 01101000 01101111 01100010 01100010 01111001 00100000 01100110 01101111 01110010 00100000 01100111 01101111 01100100 00100111 01110011 00100000 01110011 01100001 01101011 01100101', 200);
+            case 'cd blog':
+                return new Response('blog', 200);
+            case 'websites':
+                return new Response('jameskitt616.de', 200);
+            default:
+                return new Response('Command ' . $input . ' not found, <strong>help</strong> for help', 200);
+        }
     }
 }
