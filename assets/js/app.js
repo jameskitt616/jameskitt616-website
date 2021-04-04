@@ -30,7 +30,7 @@ home.init = function () {
         }
     });
 
-    $('div#consoleWindow').click(function(){
+    $('div#input').click(function(){
         $('#input').focus();
     });
 };

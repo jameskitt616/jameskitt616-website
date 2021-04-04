@@ -40,7 +40,7 @@ final class ConsoleController extends AbstractController
             case 'websites':
                 return new Response('jameskitt616.de', 200);
             default:
-                return new Response('Command ' . $input . ' not found, <strong>help</strong> for help', 200);
+                return new Response('Command "' . $input . '" not found, <strong>help</strong> for help.', 200);
         }
     }
 }
