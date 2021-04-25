@@ -32,6 +32,12 @@ final class Post
      */
     private DateTime $createdAt;
 
+    /**
+     * @var DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $content;
+
     public function __construct(string $title)
     {
         $this->id = Uuid::uuid4()->toString();

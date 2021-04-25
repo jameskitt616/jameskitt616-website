@@ -2,10 +2,14 @@
 
 {% block body %}
     <div class="p-5">
+
+        <a href="{{ path('blog_list') }}" class="text-3xl mt-6 hover:text-gray-400">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
         <div class="text-2xl pb-10">
             <b>{{ post.title }}</b>
             {{ post.createdAt|date('Y-m-d') }}
         </div>
-
     </div>
 {% endblock %}
