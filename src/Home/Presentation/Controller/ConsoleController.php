@@ -36,7 +36,8 @@ final class ConsoleController extends AbstractController
             case 'sudo shutdown':
                 return new Response('01100110 01101001 01101110 01100100 00100000 01100001 00100000 01101000 01101111 01100010 01100010 01111001 00100000 01100110 01101111 01110010 00100000 01100111 01101111 01100100 00100111 01110011 00100000 01110011 01100001 01101011 01100101', 200);
             case 'cd blog':
-                return new Response('blog', 200);
+                //TODO: fix this, it's getting called via ajax / don't replace with js
+                return $this->redirectToRoute('blog_list');
             case 'websites':
                 return new Response('jameskitt616.de', 200);
             default:
