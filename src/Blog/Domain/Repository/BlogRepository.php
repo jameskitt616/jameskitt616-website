@@ -12,4 +12,6 @@ interface BlogRepository
      * @return array|Post[]
      */
     public function findAllPosts(): array;
+
+    public function save(Post $post): void;
 }

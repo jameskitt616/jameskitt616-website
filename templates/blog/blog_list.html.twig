@@ -5,12 +5,17 @@
         <div class="text-2xl pb-10">
             <b>jameskitt616's Blog</b>
         </div>
+
+        <a href="{{ path('blog_create_post') }}" class="p-3 my-6 rounded border bg-gray-600 hover:bg-gray-700">
+            Create Post
+        </a>
+        <br>
+        <br>
         <div class="text-xl">
             {% for post in posts %}
-                <div class="hover:underline cursor-pointer pb-2">
+                <a class="hover:underline cursor-pointer pb-2" href="{{ path('blog_post', {id: post.id}) }}">
                     {{ post.title }}
-{#                    {{ post.createdAt|date('Y-m-d') }}#}
-                </div>
+                </a><br>
             {% endfor %}
         </div>
     </div>

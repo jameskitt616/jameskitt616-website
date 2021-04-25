@@ -25,4 +25,10 @@ final class DoctrineBlogRepository extends ServiceEntityRepository implements Bl
 
         return $qb->getQuery()->getResult();
     }
+
+    public function save(Post $post): void
+    {
+        $this->_em->persist($post);
+        $this->_em->flush();
+    }
 }

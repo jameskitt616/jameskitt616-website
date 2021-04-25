@@ -4,12 +4,14 @@ declare(strict_types = 1);
 
 namespace App\Blog\Presentation\Controller;
 
+use App\Blog\Domain\Entity\Post;
 use App\Blog\Domain\Repository\BlogRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class BlogController extends AbstractController
+final class ShowBlogController extends AbstractController
 {
     private BlogRepository $blogRepository;
 
@@ -20,14 +22,14 @@ final class BlogController extends AbstractController
 
     /**
      * @return Response
-     * @Route("/blog", name="blog_list")
+     * @Route("/blog/post/{id}", name="blog_post")
      */
-    public function show(): Response
+    public function show(Request $request, Post $post): Response
     {
-        $posts = $this->blogRepository->findAllPosts();
+//        $posts = $this->blogRepository->findAllPosts();
 
-        return $this->render('blog/blog_list.html.twig', [
-            'posts' => $posts,
+        return $this->render('blog/show_blog.html.twig', [
+            'post' => $post,
         ]);
     }
 }
