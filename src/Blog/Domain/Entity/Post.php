@@ -30,13 +30,13 @@ final class Post
      * @var DateTime
      * @ORM\Column(type="datetime")
      */
-    private DateTime $creationDate;
+    private DateTime $createdAt;
 
     public function __construct(string $title)
     {
         $this->id = Uuid::uuid4()->toString();
         $this->title = $title;
-        $this->creationDate = new DateTime();
+        $this->createdAt = new DateTime();
     }
 
     public function getId(): string
@@ -49,8 +49,8 @@ final class Post
         return $this->title;
     }
 
-    public function getCreationDate(): DateTime
+    public function getCreatedAt(): DateTime
     {
-        return $this->creationDate;
+        return $this->createdAt;
     }
 }
