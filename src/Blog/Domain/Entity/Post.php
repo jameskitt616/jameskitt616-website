@@ -33,10 +33,10 @@ final class Post
     private DateTime $createdAt;
 
     /**
-     * @var DateTime
-     * @ORM\Column(type="datetime")
+     * @var Content
+     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"all"})
      */
-    private $content;
+    private Content $content;
 
     public function __construct(string $title)
     {
