@@ -37,7 +37,7 @@ final class Post
      * @var PersistentCollection
      * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"remove"})
      */
-    private PersistentCollection $content;
+    private PersistentCollection $contents;
 
     public function __construct(string $title)
     {
