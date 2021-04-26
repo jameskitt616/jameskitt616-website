@@ -26,7 +26,7 @@ final class DeletePostController extends AbstractController
      * @return Response
      * @Route("/blog/delete/{id}", name="blog_delete_post", methods={"GET"})
      */
-    public function createChallenge(Post $post): Response
+    public function deletePost(Post $post): Response
     {
         $command = new DeletePost($post);
         $this->commandBus->handle($command);

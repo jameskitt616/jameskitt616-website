@@ -7,7 +7,6 @@ namespace App\Blog\Presentation\Controller;
 use App\Blog\Domain\Entity\Post;
 use App\Blog\Domain\Repository\ContentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,10 +20,12 @@ final class ShowBlogController extends AbstractController
     }
 
     /**
+     * @param Post $post
+     *
      * @return Response
      * @Route("/blog/post/{id}", name="blog_post")
      */
-    public function show(Request $request, Post $post): Response
+    public function show(Post $post): Response
     {
         $contents = $this->contentRepository->findContentsByPostId($post->getId());
 
