@@ -2,12 +2,15 @@ require('../css/app.scss');
 
 $(document).ready(function () {
     home.init();
+    blog.init();
 });
 
 let home = {};
+let blog = {};
 
 home.init = function () {
 
+    // TODO: only for terminal page
     $(window).keypress(function (e) {
         let key = e.which;
         if(key === 13)
@@ -35,6 +38,11 @@ home.init = function () {
     });
 };
 
+blog.init = function () {
+
+    $('a#deletePost').click(blog.deletePost);
+};
+
 home.displayResult = function (data, input) {
 
     let div = document.createElement('div');
@@ -48,4 +56,14 @@ home.displayResult = function (data, input) {
 
     $('div#pastInputs').append(div);
     $('span#input').html('');
+};
+
+blog.deletePost = function (e) {
+    e.preventDefault();
+
+    let url = $(this).attr('href');
+
+    if (confirm("Are you sure?")) {
+        window.location = url;
+    }
 };

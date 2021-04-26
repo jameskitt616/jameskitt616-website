@@ -1,26 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="p-5">
-        <div>
-            <div class="mt-24 mb-8 border rounded p-8 m-auto text-base">
-
+    <div class="p-5 text-center">
+        <div class="mt-24 mb-8 border rounded p-3 w-5/12 m-auto text-center">
+            <a href="{{ path('blog_list') }}" class="text-gray-400 hover:text-white float-left" title="Back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="m-4">
                 {{ form_start(form) }}
 
                 {{ form_row(form.title, {
                     label: 'Titel:',
                     attr: {
-                        'class': 'text-base border rounded-lg w-full px-4 py-2 my-4 bg-gray-400',
+                        'class': 'border rounded-lg w-full p-1 bg-gray-600 border-gray-600',
                     }
                 }) }}
 
-                <button type="submit" class="p-3 mt-6 rounded border hover:bg-gray-200">
+                <button type="submit" class="p-2 mt-6 rounded border hover:bg-gray-200">
                     Create
                 </button>
-
-                <a href="{{ path('blog_list') }}" class="p-3 mt-6 rounded border hover:bg-gray-400">
-                    Back
-                </a>
 
                 {{ form_end(form) }}
             </div>

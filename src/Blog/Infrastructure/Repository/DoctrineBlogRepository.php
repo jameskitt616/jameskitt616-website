@@ -31,4 +31,10 @@ final class DoctrineBlogRepository extends ServiceEntityRepository implements Bl
         $this->_em->persist($post);
         $this->_em->flush();
     }
+
+    public function delete(Post $post): void
+    {
+        $this->_em->remove($post);
+        $this->_em->flush();
+    }
 }

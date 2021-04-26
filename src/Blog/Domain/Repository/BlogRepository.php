@@ -14,4 +14,6 @@ interface BlogRepository
     public function findAllPosts(): array;
 
     public function save(Post $post): void;
+
+    public function delete(Post $post): void;
 }

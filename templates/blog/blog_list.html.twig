@@ -2,15 +2,17 @@
 
 {% block body %}
     <div class="p-5">
-        <div class="text-2xl pb-10">
+        <div class="text-3xl pb-10 text-center">
             <b>jameskitt616's Blog</b>
         </div>
 
-        <a href="{{ path('blog_create_post') }}" class="p-3 my-6 rounded border bg-gray-600 hover:bg-gray-700">
+        <a href="{{ path('blog_create_post') }}" class="p-2 my-3 rounded border bg-gray-600 hover:bg-gray-700">
             Create Post
         </a>
+
         <br>
         <br>
+
         <div class="text-xl">
             {% for post in posts %}
                 <a class="hover:underline cursor-pointer pb-2" href="{{ path('blog_post', {id: post.id}) }}">
