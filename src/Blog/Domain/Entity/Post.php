@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Blog\Domain\Entity;
 
 use DateTime;
+use Doctrine\ORM\PersistentCollection;
 use Ramsey\Uuid\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -33,10 +34,10 @@ final class Post
     private DateTime $createdAt;
 
     /**
-     * @var Content
-     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"all"})
+     * @var PersistentCollection
+     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"remove"})
      */
-    private Content $content;
+    private PersistentCollection $content;
 
     public function __construct(string $title)
     {
