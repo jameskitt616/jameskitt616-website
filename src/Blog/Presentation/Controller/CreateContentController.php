@@ -27,7 +27,7 @@ final class CreateContentController extends AbstractController
      * @param Post    $post
      *
      * @return Response
-     * @Route("/{id}/create/post", name="post_create_content", methods={"POST", "GET"})
+     * @Route("/{id}/create/content", name="post_create_content", methods={"POST", "GET"})
      */
     public function createContent(Request $request, Post $post): Response
     {

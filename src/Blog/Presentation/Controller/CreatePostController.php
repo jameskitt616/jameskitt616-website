@@ -25,13 +25,13 @@ final class CreatePostController extends AbstractController
      * @param Request $request
      *
      * @return Response
-     * @Route("/blog/create/post", name="blog_create_post", methods={"POST", "GET"})
+     * @Route("/blog/create/post", name="create_blog_post", methods={"POST", "GET"})
      */
     public function createPost(Request $request): Response
     {
         $command = new CreatePost();
 
-        $url = $this->generateUrl('blog_create_post');
+        $url = $this->generateUrl('create_blog_post');
         $form = $this->createForm(CreatePostForm::class, $command, ['action' => $url]);
 
         $form->handleRequest($request);
