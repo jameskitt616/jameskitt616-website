@@ -86,4 +86,14 @@ class Content
     {
         $this->title = $title;
     }
+
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
 }

@@ -21,6 +21,7 @@ class CreateContentHandler
 
         $content->setText($command->text);
         $content->setTitle($command->title);
+        $content->setImage($command->getData());
 
         $this->contentRepository->save($content);
     }

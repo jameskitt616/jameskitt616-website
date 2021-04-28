@@ -4,10 +4,12 @@ namespace App\Blog\Presentation\Form;
 
 use App\Blog\Application\Command\CreateContent;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Image;
 
 final class CreateContentForm extends AbstractType
 {
@@ -18,7 +20,16 @@ final class CreateContentForm extends AbstractType
         ]);
 
         $builder->add('text', TextareaType::class, [
-            'required' => true,
+            'required' => false,
+        ]);
+
+        $builder->add('imageFile', FileType::class, [
+            'required' => false,
+            'constraints' => [
+                new Image([
+                    'maxSize' => '2M',
+                ]),
+            ],
         ]);
     }
 

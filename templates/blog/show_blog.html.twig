@@ -39,6 +39,20 @@
                         </div>
                     {% endif %}
                     {{ content.text|nl2br }}
+
+                    {% if content.image != null %}
+                        <div>
+                            <img src="data:image/png;base64,{{ content.image }}">
+                        </div>
+{#                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+{#                            <span>#}
+{#                                <a href="{{ path('delete_image', {id: content.id}) }}" title="Bild löschen"#}
+{#                                   class="text-base float-right text-red-500 pr-2 hover:text-red-600">#}
+{#                                    <i class="fas fa-trash-alt"></i>#}
+{#                                </a>#}
+{#                            </span>#}
+{#                        {% endif %}#}
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>

@@ -19,8 +19,15 @@
                 {{ form_row(form.text, {
                     label: 'Text:',
                     attr: {
-                        'class': 'border rounded-lg w-full p-1 bg-gray-600 border-gray-600',
+                        'class': 'border rounded-lg w-full p-1 bg-gray-600 border-gray-600 mb-5',
                         'style': 'min-height: 250px;',
+                    }
+                }) }}
+
+                {{ form_row(form.imageFile, {
+                    label: 'Image:',
+                    attr: {
+                        'class': 'border rounded-lg w-full p-1 bg-gray-600 border-gray-600'
                     }
                 }) }}
 
