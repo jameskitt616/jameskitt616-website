@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="p-5 text-center">
+        <div class="mt-24 mb-8 border rounded p-3 w-5/12 m-auto text-center">
+            <a href="{{ path('blog_list') }}" class="text-gray-400 hover:text-white float-left"
+               title="Back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="m-4">
+                <form method="post">
+                    <div class="text-red-500 pb-4">
+                        {% if error %}
+                            {{ error.messageKey|trans(error.messageData, 'security') }}
+                        {% endif %}
+                    </div>
+
+                    <label>
+                        Username
+                        <input class="border rounded-lg w-full p-1 bg-gray-600 border-gray-600 mb-5"
+                               type="email" placeholder="E-Mail" required
+{#                               type="email" placeholder="Username" value="{{ last_username }}" required#}
+                               autofocus>
+                    </label>
+
+                    <label>
+                        Password
+                        <input class="border rounded-lg w-full p-1 bg-gray-600 border-gray-600 mb-5"
+                               type="password" placeholder="*************" required>
+                    </label>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <button type="submit" class="p-2 mt-6 rounded bg-gray-600 hover:bg-gray-700">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
