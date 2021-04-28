@@ -21,7 +21,7 @@ final class DoctrineBlogRepository extends ServiceEntityRepository implements Bl
         $qb = $this->_em->createQueryBuilder();
         $qb->select('post')
             ->from(Post::class, 'post')
-            ->orderBy('post.createdAt', 'ASC');
+            ->orderBy('post.createdAt', 'DESC');
 
         return $qb->getQuery()->getResult();
     }

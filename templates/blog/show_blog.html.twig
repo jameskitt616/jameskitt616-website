@@ -22,14 +22,14 @@
             </a>
         {% endif %}
 
-        <div class="text-3xl py-8">
+        <div class="text-3xl py-8 text-center">
             <b>{{ post.title }}</b>
             <div class="text-sm">
                 {{ post.createdAt|date('Y-m-d') }}
             </div>
         </div>
 
-        <div class="w-full lg:w-2/3">
+        <div class="w-full lg:w-2/3 m-auto">
             {% for content in contents %}
                 <div class="py-2">
                     {% if content.title is not empty %}
@@ -38,7 +38,7 @@
                             {{ content.title }}
                         </div>
                     {% endif %}
-                    {{ content.text|nl2br }}
+                    {{ content.text|raw }}
 
                     {% if content.image != null %}
                         <div>
