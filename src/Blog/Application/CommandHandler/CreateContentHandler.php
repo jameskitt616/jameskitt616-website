@@ -3,20 +3,24 @@
 namespace App\Blog\Application\CommandHandler;
 
 use App\Blog\Application\Command\CreateContent;
+use App\Blog\Domain\Entity\Content;
 use App\Blog\Domain\Repository\BlogRepository;
+use App\Blog\Domain\Repository\ContentRepository;
 
 class CreateContentHandler
 {
-    private BlogRepository $blogRepository;
+    private ContentRepository $contentRepository;
 
-    public function __construct(BlogRepository $blogRepository)
+    public function __construct(ContentRepository $contentRepository)
     {
-        $this->blogRepository = $blogRepository;
+        $this->contentRepository = $contentRepository;
     }
 
     public function __invoke(CreateContent $command)
     {
-        //        $post = new Post($command->title);
-        //        $this->blogRepository->save($post);
+        $content = new Content($command->post);
+        $content->setText($command->text);
+
+        $this->contentRepository->save($content);
     }
 }

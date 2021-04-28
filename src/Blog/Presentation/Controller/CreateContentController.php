@@ -31,7 +31,7 @@ final class CreateContentController extends AbstractController
      */
     public function createContent(Request $request, Post $post): Response
     {
-        $command = new CreateContent();
+        $command = new CreateContent($post);
 
         $url = $this->generateUrl('post_create_content', [
             'id' => $post->getId(),

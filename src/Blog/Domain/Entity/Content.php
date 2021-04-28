@@ -28,13 +28,13 @@ class Content
 
     /**
      * @var string
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private string $text;
 
     /**
      * @var string
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private string $image;
 
@@ -69,5 +69,10 @@ class Content
     public function getImage(): string
     {
         return $this->image;
+    }
+
+    public function setText(string $text): void
+    {
+        $this->text = $text;
     }
 }
