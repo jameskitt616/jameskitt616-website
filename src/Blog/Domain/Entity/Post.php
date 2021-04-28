@@ -34,7 +34,7 @@ final class Post
     private DateTime $createdAt;
 
     /**
-     * @var PersistentCollection
+     * @var PersistentCollection|Content[]
      * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"all"})
      */
     private PersistentCollection $contents;

@@ -6,7 +6,7 @@ namespace App\Blog\Presentation\Controller;
 
 use App\Blog\Application\Command\CreateContent;
 use App\Blog\Domain\Entity\Post;
-use App\Blog\Presentation\Form\CreatePostForm;
+use App\Blog\Presentation\Form\CreateContentForm;
 use App\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,8 +33,10 @@ final class CreateContentController extends AbstractController
     {
         $command = new CreateContent();
 
-        $url = $this->generateUrl('post_create_content');
-        $form = $this->createForm(CreatePostForm::class, $command, ['action' => $url]);
+        $url = $this->generateUrl('post_create_content', [
+            'id' => $post->getId(),
+        ]);
+        $form = $this->createForm(CreateContentForm::class, $command, ['action' => $url]);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
