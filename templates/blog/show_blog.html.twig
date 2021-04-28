@@ -13,14 +13,14 @@
             <i class="fas fa-arrow-left"></i>
         </a>
 
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+{#        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
             <a id="deletePost" href="{{ path('blog_delete_post', {id: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                 <i class="fas fa-trash"></i>
             </a>
             <a href="{{ path('post_create_content', {id: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                 <i class="fas fa-plus"></i>
             </a>
-        {% endif %}
+{#        {% endif %}#}
 
         <div class="text-3xl py-8">
             <b>{{ post.title }}</b>
