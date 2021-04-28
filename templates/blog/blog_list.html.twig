@@ -13,18 +13,19 @@
             <b>jameskitt616's Blog</b>
         </div>
 
-        <a href="{{ path('create_blog_post') }}" class="p-2 my-3 rounded border bg-gray-600 hover:bg-gray-700">
-            Create Post
-        </a>
-
-        <br>
-        <br>
+        <div class="mb-4">
+            <a href="{{ path('create_blog_post') }}" class="p-2 my-3 rounded border bg-gray-600 hover:bg-gray-700">
+                Create Post
+            </a>
+        </div>
 
         <div class="text-xl">
             {% for post in posts %}
-                <a class="hover:underline cursor-pointer pb-2" href="{{ path('blog_post', {id: post.id}) }}">
-                    {{ post.title }}
-                </a><br>
+                <div class="pb-2">
+                    <a class="hover:underline cursor-pointer" href="{{ path('blog_post', {id: post.id}) }}">
+                        {{ post.title }}
+                    </a>
+                </div>
             {% endfor %}
         </div>
     </div>
