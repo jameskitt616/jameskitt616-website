@@ -9,9 +9,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    /**
-     * @var AuthenticationUtils
-     */
     private AuthenticationUtils $authenticationUtils;
 
     public function __construct(AuthenticationUtils $authenticationUtils)

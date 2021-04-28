@@ -28,6 +28,10 @@ services:
         resource: '../src/Blog/Presentation/Controller/*'
         tags: ['controller.service_arguments']
 
+    App\Security\Presentation\Controller\:
+        resource: '../src/Security/Presentation/Controller/*'
+        tags: ['controller.service_arguments']
+
     App\Blog\Application\CommandHandler\:
         resource: '../src/Blog/Application/CommandHandler/*Handler.php'
         public: true

@@ -18,7 +18,7 @@
                     <label>
                         Username
                         <input class="border rounded-lg w-full p-1 bg-gray-600 border-gray-600 mb-5"
-                               type="email" placeholder="E-Mail" required
+                               name="email" type="email" placeholder="E-Mail" required
 {#                               type="email" placeholder="Username" value="{{ last_username }}" required#}
                                autofocus>
                     </label>
@@ -26,7 +26,7 @@
                     <label>
                         Password
                         <input class="border rounded-lg w-full p-1 bg-gray-600 border-gray-600 mb-5"
-                               type="password" placeholder="*************" required>
+                               name="password" type="password" placeholder="*************" required>
                     </label>
 
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

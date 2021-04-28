@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security\Application\Service;
+namespace App\Security;
 
 use App\Security\Domain\Entity\User;
 use App\Security\Domain\Repository\UserRepository;
@@ -19,7 +19,7 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class LoginFormAuthenticatorService extends AbstractFormLoginAuthenticator
+class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
 
@@ -29,13 +29,8 @@ class LoginFormAuthenticatorService extends AbstractFormLoginAuthenticator
 
     private CsrfTokenManagerInterface $csrfTokenManager;
 
-    /**
-     * @var UserPasswordEncoderInterface
-     */
     private UserPasswordEncoderInterface $passwordEncoder;
-    /**
-     * @var SessionInterface
-     */
+
     private SessionInterface $session;
 
     public function __construct(SessionInterface $session, UserRepository $userRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
