@@ -19,7 +19,6 @@ class CreateContentHandler
     {
         $content = new Content($command->post);
 
-        dump($content);
         $content->setText($command->text);
         $content->setTitle($command->title);
 
