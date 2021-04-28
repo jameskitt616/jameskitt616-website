@@ -27,16 +27,22 @@ class Content
     private Post $post;
 
     /**
-     * @var string
-     * @ORM\Column(type="text", nullable=true)
+     * @var string|null
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $text;
+    private ?string $title;
 
     /**
-     * @var string
+     * @var string|null
      * @ORM\Column(type="text", nullable=true)
      */
-    private string $image;
+    private ?string $text;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private ?string $image;
 
     /**
      * @var DateTime
@@ -61,18 +67,23 @@ class Content
         return $this->post;
     }
 
-    public function getText(): string
+    public function getText(): ?string
     {
         return $this->text;
     }
 
-    public function getImage(): string
-    {
-        return $this->image;
-    }
-
-    public function setText(string $text): void
+    public function setText(?string $text): void
     {
         $this->text = $text;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): void
+    {
+        $this->title = $title === null ? '' : $title;
     }
 }

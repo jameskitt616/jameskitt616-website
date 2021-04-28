@@ -13,20 +13,24 @@
             <b>jameskitt616's Blog</b>
         </div>
 
-        <div class="mb-4">
-            <a href="{{ path('create_blog_post') }}" class="p-2 my-3 rounded border bg-gray-600 hover:bg-gray-700">
-                Create Post
-            </a>
-        </div>
-
-        <div class="text-xl">
-            {% for post in posts %}
-                <div class="pb-2">
-                    <a class="hover:underline cursor-pointer" href="{{ path('blog_post', {id: post.id}) }}">
-                        {{ post.title }}
+        <div class="ml-12 mt-14">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <div class="mb-4">
+                    <a href="{{ path('create_blog_post') }}" class="p-2 my-3 rounded bg-gray-600 hover:bg-gray-700">
+                        Create Post
                     </a>
                 </div>
-            {% endfor %}
+            {% endif %}
+
+            <div class="text-xl">
+                {% for post in posts %}
+                    <a href="{{ path('blog_post', {id: post.id}) }}">
+                        <div class="mb-3 bg-gray-600 hover:bg-gray-700 p-1 rounded w-full lg:w-2/3 cursor-pointer">
+                            {{ post.title }} <span class="text-xs">{{ post.createdAt|date('Y-m-d') }}</span>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

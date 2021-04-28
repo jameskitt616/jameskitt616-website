@@ -17,6 +17,11 @@ class CreateContent implements Command
      */
     public string $text;
 
+    /**
+     * @var string|null
+     */
+    public string $title;
+
     public function __construct(Post $post)
     {
         $this->post = $post;

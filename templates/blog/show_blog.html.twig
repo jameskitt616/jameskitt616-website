@@ -8,29 +8,36 @@
 {% endblock %}
 
 {% block body %}
-    <div class="p-5">
+    <div class="p-12">
         <a href="{{ path('blog_list') }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
             <i class="fas fa-arrow-left"></i>
         </a>
 
-        <a id="deletePost" href="{{ path('blog_delete_post', {id: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
-            <i class="fas fa-trash"></i>
-        </a>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a id="deletePost" href="{{ path('blog_delete_post', {id: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+                <i class="fas fa-trash"></i>
+            </a>
+            <a href="{{ path('post_create_content', {id: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+                <i class="fas fa-plus"></i>
+            </a>
+        {% endif %}
 
-        <a href="{{ path('post_create_content', {id: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
-            <i class="fas fa-plus"></i>
-        </a>
-
-        <div class="text-2xl py-8">
+        <div class="text-3xl py-8">
             <b>{{ post.title }}</b>
             <div class="text-sm">
                 {{ post.createdAt|date('Y-m-d') }}
             </div>
         </div>
 
-        <div class="w-2/3">
+        <div class="w-full lg:w-2/3">
             {% for content in contents %}
                 <div class="py-2">
+                    {% if content.title is not empty %}
+                        <div id="{{ content.title }}" class="text-2xl font-bold">
+                            <a href="#{{ content.title }}">#</a>
+                            {{ content.title }}
+                        </div>
+                    {% endif %}
                     {{ content.text|nl2br }}
                 </div>
             {% endfor %}
