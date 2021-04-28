@@ -3,6 +3,7 @@
 declare(strict_types = 1);
 
 namespace App\Blog\Domain\Entity;
+
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
@@ -21,7 +22,7 @@ class Content
 
     /**
      * @var Post $post
-     * @ORM\ManyToOne(targetEntity="Post", inversedBy="content", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Post", inversedBy="contents", cascade={"all"})
      */
     private Post $post;
 

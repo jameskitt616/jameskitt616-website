@@ -23,6 +23,7 @@ final class CreatePostController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return Response
      * @Route("/blog/create/post", name="blog_create_post", methods={"POST", "GET"})
      */

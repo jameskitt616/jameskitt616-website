@@ -35,7 +35,7 @@ final class Post
 
     /**
      * @var PersistentCollection
-     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"all"})
      */
     private PersistentCollection $contents;
 

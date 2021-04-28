@@ -47,6 +47,7 @@ final class CreateContentController extends AbstractController
 
         return $this->render('blog/form/create_content_form.html.twig', [
             'form' => $form->createView(),
+            'post' => $post,
         ]);
     }
 }

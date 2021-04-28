@@ -1,5 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('blog') }}
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('blog') }}
+{% endblock %}
+
 {% block body %}
     <div class="p-5">
         <a href="{{ path('blog_list') }}" class="text-3xl mt-6 text-gray-500 hover:text-white">

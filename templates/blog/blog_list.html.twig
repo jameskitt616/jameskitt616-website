@@ -1,5 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('blog') }}
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('blog') }}
+{% endblock %}
+
 {% block body %}
     <div class="p-5">
         <div class="text-3xl pb-10 text-center">
