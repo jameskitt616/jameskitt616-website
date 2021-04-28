@@ -30,19 +30,19 @@ class Content
      * @var string|null
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $title;
+    private ?string $title = null;
 
     /**
      * @var string|null
      * @ORM\Column(type="text", nullable=true)
      */
-    private ?string $text;
+    private ?string $text = null;
 
     /**
      * @var string|null
      * @ORM\Column(type="text", nullable=true)
      */
-    private ?string $image;
+    private ?string $image = null;
 
     /**
      * @var DateTime
@@ -84,6 +84,6 @@ class Content
 
     public function setTitle(?string $title): void
     {
-        $this->title = $title === null ? '' : $title;
+        $this->title = $title;
     }
 }

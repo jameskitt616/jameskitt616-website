@@ -4,7 +4,6 @@ namespace App\Blog\Application\CommandHandler;
 
 use App\Blog\Application\Command\CreateContent;
 use App\Blog\Domain\Entity\Content;
-use App\Blog\Domain\Repository\BlogRepository;
 use App\Blog\Domain\Repository\ContentRepository;
 
 class CreateContentHandler
@@ -19,8 +18,9 @@ class CreateContentHandler
     public function __invoke(CreateContent $command)
     {
         $content = new Content($command->post);
-        $content->setText($command->text);
 
+        dump($content);
+        $content->setText($command->text);
         $content->setTitle($command->title);
 
         $this->contentRepository->save($content);

@@ -13,14 +13,14 @@ class CreateContent implements Command
     public Post $post;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public string $text;
+    public ?string $text;
 
     /**
      * @var string|null
      */
-    public string $title;
+    public ?string $title;
 
     public function __construct(Post $post)
     {
