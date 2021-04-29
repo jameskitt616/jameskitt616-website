@@ -28,8 +28,11 @@
                     &lta href="https://signal.org" target="_blank" class="underline">Signal&lt/a&gt
                 </div>
 
-                {{ form_row(form.imageFile, {
-                    label: 'Image:',
+                <div>Image:</div>
+                <div class="text-red-600">
+                    {{ form_errors (form.imageFile) }}
+                </div>
+                {{ form_widget(form.imageFile, {
                     attr: {
                         'class': 'border rounded-lg w-full p-1 bg-gray-600 border-gray-600'
                     }
