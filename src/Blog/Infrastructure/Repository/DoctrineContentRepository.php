@@ -34,4 +34,10 @@ final class DoctrineContentRepository extends ServiceEntityRepository implements
         $this->_em->persist($content);
         $this->_em->flush();
     }
+
+    public function delete(Content $content): void
+    {
+        $this->_em->remove($content);
+        $this->_em->flush();
+    }
 }

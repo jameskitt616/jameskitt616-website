@@ -14,4 +14,6 @@ interface ContentRepository
     public function findContentsByPostId(string $postId): array;
 
     public function save(Content $content): void;
+
+    public function delete(Content $content): void;
 }
