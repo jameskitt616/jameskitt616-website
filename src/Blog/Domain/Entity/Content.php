@@ -11,7 +11,7 @@ use Ramsey\Uuid\Uuid;
 /**
  * @ORM\Entity()
  */
-final class Content
+class Content
 {
     /**
      * @var string
