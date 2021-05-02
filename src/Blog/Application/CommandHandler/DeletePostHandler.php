@@ -5,13 +5,13 @@ namespace App\Blog\Application\CommandHandler;
 use App\Blog\Application\Command\CreatePost;
 use App\Blog\Application\Command\DeletePost;
 use App\Blog\Domain\Entity\Post;
-use App\Blog\Domain\Repository\BlogRepository;
+use App\Blog\Domain\Repository\PostRepository;
 
 class DeletePostHandler
 {
-    private BlogRepository $blogRepository;
+    private PostRepository $blogRepository;
 
-    public function __construct(BlogRepository $blogRepository)
+    public function __construct(PostRepository $blogRepository)
     {
         $this->blogRepository = $blogRepository;
     }

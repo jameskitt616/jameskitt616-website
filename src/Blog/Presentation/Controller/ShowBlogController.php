@@ -29,7 +29,7 @@ final class ShowBlogController extends AbstractController
     {
         $contents = $this->contentRepository->findContentsByPostId($post->getId());
 
-        return $this->render('blog/show_blog.html.twig', [
+        return $this->render('blog/show_post.html.twig', [
             'post' => $post,
             'contents' => $contents,
         ]);

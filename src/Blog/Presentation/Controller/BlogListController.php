@@ -4,16 +4,16 @@ declare(strict_types = 1);
 
 namespace App\Blog\Presentation\Controller;
 
-use App\Blog\Domain\Repository\BlogRepository;
+use App\Blog\Domain\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class BlogListController extends AbstractController
 {
-    private BlogRepository $blogRepository;
+    private PostRepository $blogRepository;
 
-    public function __construct(BlogRepository $blogRepository)
+    public function __construct(PostRepository $blogRepository)
     {
         $this->blogRepository = $blogRepository;
     }
@@ -26,7 +26,7 @@ final class BlogListController extends AbstractController
     {
         $posts = $this->blogRepository->findAllPosts();
 
-        return $this->render('blog/blog_list.html.twig', [
+        return $this->render('blog/post_list.html.twig', [
             'posts' => $posts,
         ]);
     }

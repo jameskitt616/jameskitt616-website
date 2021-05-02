@@ -6,7 +6,7 @@ namespace App\Blog\Domain\Repository;
 
 use App\Blog\Domain\Entity\Post;
 
-interface BlogRepository
+interface PostRepository
 {
     /**
      * @return array|Post[]

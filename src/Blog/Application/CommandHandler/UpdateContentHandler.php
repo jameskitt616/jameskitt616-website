@@ -7,7 +7,7 @@ use App\Blog\Application\Command\UpdateContent;
 use App\Blog\Domain\Entity\Content;
 use App\Blog\Domain\Repository\ContentRepository;
 
-class EditContentHandler
+class UpdateContentHandler
 {
     private ContentRepository $contentRepository;
 
@@ -24,6 +24,10 @@ class EditContentHandler
         $content->setTitle($command->title);
         if (!empty($command->imageFile)) {
             $content->setImage($command->getData());
+        } else {
+            if ($command->removePicture) {
+                $content->setImage(null);
+            }
         }
 
         $this->contentRepository->save($content);

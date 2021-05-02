@@ -28,6 +28,11 @@ class UpdateContent implements Command
      */
     public ?UploadedFile $imageFile = null;
 
+    /**
+     * @var bool
+     */
+    public bool $removePicture;
+
     public function __construct(Content $content)
     {
         $this->content = $content;

@@ -3,10 +3,12 @@
 namespace App\Blog\Application\CommandHandler;
 
 use App\Blog\Application\Command\CreatePost;
+use App\Blog\Application\Command\DeletePost;
+use App\Blog\Application\Command\ToggleVisibilityPost;
 use App\Blog\Domain\Entity\Post;
 use App\Blog\Domain\Repository\PostRepository;
 
-class CreatePostHandler
+class TogglePostVisibilityHandler
 {
     private PostRepository $blogRepository;
 
@@ -15,9 +17,10 @@ class CreatePostHandler
         $this->blogRepository = $blogRepository;
     }
 
-    public function __invoke(CreatePost $command)
+    public function __invoke(ToggleVisibilityPost $command)
     {
-        $post = new Post($command->title);
+        $post = $command->post;
+        $post->toggleVisibility($command->visibility);
 
         $this->blogRepository->save($post);
     }

@@ -39,11 +39,18 @@ class Post
      */
     private PersistentCollection $contents;
 
+    /**
+     * @var bool
+     * @ORM\Column(type="boolean")
+     */
+    private bool $visible;
+
     public function __construct(string $title)
     {
         $this->id = Uuid::uuid4()->toString();
         $this->title = $title;
         $this->createdAt = new DateTime();
+        $this->visible = true;
     }
 
     public function getId(): string
@@ -59,5 +66,15 @@ class Post
     public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
+    }
+
+    public function toggleVisibility(bool $visible): void
+    {
+        $this->visible = $visible;
+    }
+
+    public function isVisible(): bool
+    {
+        return $this->visible;
     }
 }
