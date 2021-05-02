@@ -9,6 +9,13 @@ use App\Blog\Domain\Entity\Content;
 interface ContentRepository
 {
     /**
+     * @param string $contentId
+     *
+     * @return Content
+     */
+    public function findContentsById(string $contentId): Content;
+
+    /**
      * @return array|Content[]
      */
     public function findContentsByPostId(string $postId): array;

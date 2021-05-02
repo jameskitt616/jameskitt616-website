@@ -8,6 +8,8 @@ use App\Blog\Domain\Entity\Content;
 use App\Blog\Domain\Entity\Post;
 use App\Blog\Domain\Repository\ContentRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 final class DoctrineContentRepository extends ServiceEntityRepository implements ContentRepository
@@ -15,6 +17,21 @@ final class DoctrineContentRepository extends ServiceEntityRepository implements
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Post::class);
+    }
+
+    /**
+     * @throws NonUniqueResultException
+     * @throws NoResultException
+     */
+    public function findContentsById(string $contentId): Content
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('content')
+            ->from(Content::class, 'content')
+            ->where('content.id = :id')
+            ->setParameter('id', $contentId);
+
+        return $qb->getQuery()->getSingleResult();
     }
 
     public function findContentsByPostId(string $postId): array

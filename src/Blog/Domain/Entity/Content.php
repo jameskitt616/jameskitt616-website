@@ -11,7 +11,7 @@ use Ramsey\Uuid\Uuid;
 /**
  * @ORM\Entity()
  */
-class Content
+final class Content
 {
     /**
      * @var string
@@ -22,7 +22,8 @@ class Content
 
     /**
      * @var Post $post
-     * @ORM\ManyToOne(targetEntity="Post", inversedBy="contents", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="Post", inversedBy="contents", cascade={"persist"})
+     * @ORM\JoinColumn(referencedColumnName="id")
      */
     private Post $post;
 

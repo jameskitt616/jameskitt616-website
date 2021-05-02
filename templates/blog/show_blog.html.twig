@@ -46,7 +46,7 @@
                         </div>
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             <span>
-                                <a href="{{ path('blog_delete_content', {id: content.id}) }}" title="Delete Content"
+                                <a href="{{ path('post_delete_content', {postId: post.id, contentId: content.id}) }}" title="Delete Content"
                                    class="text-base float-right text-red-500 pr-2 hover:text-red-600">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>

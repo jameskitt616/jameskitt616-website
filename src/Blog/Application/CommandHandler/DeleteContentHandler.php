@@ -20,6 +20,7 @@ class DeleteContentHandler
 
     public function __invoke(DeleteContent $command)
     {
-        $this->contentRepository->delete($command->content);
+        $content = $this->contentRepository->findContentsById($command->contentId);
+        $this->contentRepository->delete($content);
     }
 }
