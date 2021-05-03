@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="p-10">
+
+        <div class="text-3xl pb-10 text-center">
+            <b>jameskitt616</b>
+        </div>
+
+        <a href="{{ path('home') }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
+        <div class="text-xl lg:w-2/3 2xl:w-2/5 m-auto">
+            <div>
+                <b>Matrix:</b> @jameskitt616:jameskitt616.de
+            </div>
+            <div>
+                <div class="p-2 text-center">
+                    <div class="flex py-2">
+                        <a title="Twitch" href="https://www.twitch.tv/jameskitt616" target="_blank"
+                           class="w-1/2 fab fa-twitch text-gray-500 hover:text-white px-4"></a>
+                        <a title="Twitter" href="https://twitter.com/jameskitt616" target="_blank"
+                           class="w-1/2 fab fa-twitter text-gray-500 hover:text-white px-4"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -19,6 +19,11 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
 
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[hash:8].[ext]'
+    })
+
     .configureBabel(() => {
     }, {
         useBuiltIns: 'usage',

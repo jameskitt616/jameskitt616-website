@@ -12,6 +12,9 @@
         <div class="text-3xl pb-10 text-center">
             <b>jameskitt616's Blog</b>
         </div>
+        <a href="{{ path('home') }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+            <i class="fas fa-arrow-left"></i>
+        </a>
 
         <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
