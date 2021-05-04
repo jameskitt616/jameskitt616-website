@@ -19,8 +19,8 @@ class CreateContentHandler
     {
         $content = new Content($command->post);
 
-        $content->setText($command->text);
         $content->setTitle($command->title);
+        $content->setText($command->text);
         $content->setImage($command->getData());
 
         $this->contentRepository->save($content);

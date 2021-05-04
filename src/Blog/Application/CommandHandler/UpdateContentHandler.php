@@ -20,8 +20,8 @@ class UpdateContentHandler
     {
         $content = $command->content;
 
-        $content->setText($command->text);
         $content->setTitle($command->title);
+        $content->setText($command->text);
         if (!empty($command->imageFile)) {
             $content->setImage($command->getData());
         } else {
