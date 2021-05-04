@@ -27,7 +27,7 @@ final class DeletePostController extends AbstractController
      * @param Post $post
      *
      * @return Response
-     * @Route("/blog/delete/{id}", name="blog_delete_post", methods={"GET"})
+     * @Route("/post/delete/{post}", name="blog_delete_post", methods={"GET"})
      */
     public function deletePost(Post $post): Response
     {

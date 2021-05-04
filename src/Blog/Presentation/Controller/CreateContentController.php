@@ -30,14 +30,14 @@ final class CreateContentController extends AbstractController
      * @param Post    $post
      *
      * @return Response
-     * @Route("/{id}/create/content", name="post_create_content", methods={"POST", "GET"})
+     * @Route("/{post}/create/content", name="post_create_content", methods={"POST", "GET"})
      */
     public function createContent(Request $request, Post $post): Response
     {
         $command = new CreateContent($post);
 
         $url = $this->generateUrl('post_create_content', [
-            'id' => $post->getId(),
+            'post' => $post->getId(),
         ]);
         $form = $this->createForm(CreateContentForm::class, $command, ['action' => $url]);
 

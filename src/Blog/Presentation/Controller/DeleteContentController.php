@@ -27,7 +27,7 @@ final class DeleteContentController extends AbstractController
      * @param string $contentId
      *
      * @return Response
-     * @Route("/{postId}/delete/{contentId}", name="post_delete_content", methods={"GET"})
+     * @Route("/{postId}/delete/content/{contentId}", name="post_delete_content", methods={"GET"})
      */
     public function deleteContent(string $postId, string $contentId): Response
     {

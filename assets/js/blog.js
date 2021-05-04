@@ -8,10 +8,11 @@ let blog = {};
 
 blog.init = function () {
 
-    $('a#deletePost').click(blog.deletePost);
+    $('a#deletePost').click(blog.confirm);
+    $('.deleteContent').click(blog.confirm);
 };
 
-blog.deletePost = function (e) {
+blog.confirm = function (e) {
     e.preventDefault();
 
     let url = $(this).attr('href');

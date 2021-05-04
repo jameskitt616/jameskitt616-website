@@ -50,7 +50,7 @@ class Post
         $this->id = Uuid::uuid4()->toString();
         $this->title = $title;
         $this->createdAt = new DateTime();
-        $this->visible = true;
+        $this->visible = false;
     }
 
     public function getId(): string

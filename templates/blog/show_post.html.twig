@@ -21,10 +21,10 @@
         </a>
 
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <a id="deletePost" href="{{ path('blog_delete_post', {id: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+            <a id="deletePost" href="{{ path('blog_delete_post', {post: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                 <i class="fas fa-trash"></i>
             </a>
-            <a href="{{ path('post_create_content', {id: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+            <a href="{{ path('post_create_content', {post: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                 <i class="fas fa-plus"></i>
             </a>
             {% if post.visible == 1 %}
@@ -63,7 +63,7 @@
                         {% endif %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             <a href="{{ path('post_delete_content', {postId: post.id, contentId: content.id}) }}" title="Delete Content"
-                               class="text-base text-gray-500 hover:text-red-500">
+                               class="text-base text-gray-500 hover:text-red-500 deleteContent">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         {% endif %}
