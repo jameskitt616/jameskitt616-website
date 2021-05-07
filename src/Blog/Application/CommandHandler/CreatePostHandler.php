@@ -17,7 +17,7 @@ class CreatePostHandler
 
     public function __invoke(CreatePost $command)
     {
-        $post = new Post($command->title);
+        $post = new Post($command->title, $command->url);
 
         $this->blogRepository->save($post);
     }

@@ -26,6 +26,17 @@ final class DoctrinePostRepository extends ServiceEntityRepository implements Po
         return $qb->getQuery()->getResult();
     }
 
+    public function findPostBySlug(string $slug): Post
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('post')
+            ->from(Post::class, 'post')
+            ->where('post.url = :slug')
+            ->setParameter('slug', $slug);
+
+        return $qb->getQuery()->getSingleResult();
+    }
+
     public function save(Post $post): void
     {
         $this->_em->persist($post);

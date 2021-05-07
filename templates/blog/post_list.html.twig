@@ -26,7 +26,7 @@
             <div class="text-xl w-full lg:w-2/3 2xl:w-2/5 m-auto text-center">
                 {% for post in posts %}
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a href="{{ path('blog_post', {id: post.id}) }}">
+                        <a href="{{ path('blog_post', {slug: post.url}) }}">
                             <div class="mb-3 bg-gray-600 hover:bg-gray-700 p-1 rounded cursor-pointer">
                                 {{ post.title }}
                                 <div class="text-xs">
@@ -41,7 +41,7 @@
                         </a>
                     {% else %}
                         {% if post.visible == 1 %}
-                            <a href="{{ path('blog_post', {id: post.id}) }}">
+                            <a href="{{ path('blog_post', {slug: post.url}) }}">
                                 <div class="mb-3 bg-gray-600 hover:bg-gray-700 p-1 rounded cursor-pointer">
                                     {{ post.title }}
                                     <div class="text-xs">{{ post.createdAt|date('Y-m-d') }}</div>

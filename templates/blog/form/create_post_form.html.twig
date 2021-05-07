@@ -16,6 +16,16 @@
                     }
                 }) }}
 
+                {{ form_row(form.url, {
+                    label: 'URL:',
+                    attr: {
+                        'class': 'border rounded-lg w-full p-1 bg-gray-600 border-gray-600',
+                    }
+                }) }}
+                <div class="text-xs mb-5">
+                    this-is-a-example-url
+                </div>
+
                 <button type="submit" class="p-2 mt-6 rounded bg-gray-600 hover:bg-gray-700">
                     Create
                 </button>

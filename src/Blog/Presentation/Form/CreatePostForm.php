@@ -15,6 +15,10 @@ final class CreatePostForm extends AbstractType
         $builder->add('title', TextType::class, [
             'required' => true,
         ]);
+
+        $builder->add('url', TextType::class, [
+            'required' => true,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

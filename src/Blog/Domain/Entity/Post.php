@@ -45,12 +45,19 @@ class Post
      */
     private bool $visible;
 
-    public function __construct(string $title)
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $url;
+
+    public function __construct(string $title, string $url)
     {
         $this->id = Uuid::uuid4()->toString();
         $this->title = $title;
         $this->createdAt = new DateTime();
         $this->visible = false;
+        $this->url = mb_substr($this->id, 0, 8) . '-' . $url;
     }
 
     public function getId(): string
@@ -76,5 +83,10 @@ class Post
     public function isVisible(): bool
     {
         return $this->visible;
+    }
+
+    public function getUrl(): string
+    {
+        return $this->url;
     }
 }
