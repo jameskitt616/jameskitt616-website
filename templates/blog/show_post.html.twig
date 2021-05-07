@@ -27,6 +27,9 @@
             <a href="{{ path('post_create_content', {post: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                 <i class="fas fa-plus"></i>
             </a>
+            <a href="{{ path('update_blog_post', {post: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+                <i class="fas fa-pencil-alt"></i>
+            </a>
             {% if post.visible == 1 %}
                 <a href="{{ path('post_toggle_visibility', {postId: post.id, visibility: 0}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                     <i class="fas fa-eye-slash"></i>

@@ -89,4 +89,14 @@ class Post
     {
         return $this->url;
     }
+
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    public function setUrl(string $url): void
+    {
+        $this->url = $url;
+    }
 }

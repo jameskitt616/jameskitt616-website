@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="p-5 text-center">
+        <div class="mt-24 mb-8 border rounded p-3 w-5/12 m-auto text-center">
+            <a href="{{ path('blog_list') }}" class="text-gray-400 hover:text-white float-left" title="Back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="m-4">
+                {{ form_start(form) }}
+
+                {{ form_row(form.title, {
+                    label: 'Title:',
+                    attr: {
+                        'class': 'border rounded-lg w-full p-1 bg-gray-600 border-gray-600',
+                    }
+                }) }}
+
+                {{ form_row(form.url, {
+                    label: 'URL:',
+                    attr: {
+                        'class': 'border rounded-lg w-full p-1 bg-gray-600 border-gray-600',
+                    }
+                }) }}
+                <div class="text-xs mb-5">
+                    this-is-a-example-url
+                </div>
+
+                <button type="submit" class="p-2 mt-6 rounded bg-gray-600 hover:bg-gray-700">
+                    Update
+                </button>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
