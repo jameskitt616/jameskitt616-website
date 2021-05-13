@@ -21,7 +21,8 @@ final class DoctrinePostRepository extends ServiceEntityRepository implements Po
         $qb = $this->_em->createQueryBuilder();
         $qb->select('post')
             ->from(Post::class, 'post')
-            ->orderBy('post.createdAt', 'DESC');
+            ->orderBy('post.createdAt', 'DESC')
+            ->where('post.deletedAt is NULL');
 
         return $qb->getQuery()->getResult();
     }
@@ -40,12 +41,6 @@ final class DoctrinePostRepository extends ServiceEntityRepository implements Po
     public function save(Post $post): void
     {
         $this->_em->persist($post);
-        $this->_em->flush();
-    }
-
-    public function delete(Post $post): void
-    {
-        $this->_em->remove($post);
         $this->_em->flush();
     }
 }

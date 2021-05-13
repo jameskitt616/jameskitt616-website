@@ -18,6 +18,9 @@ class DeletePostHandler
 
     public function __invoke(DeletePost $command)
     {
-        $this->blogRepository->delete($command->post);
+        $post = $command->post;
+        $post->delete();
+
+        $this->blogRepository->save($post);
     }
 }
