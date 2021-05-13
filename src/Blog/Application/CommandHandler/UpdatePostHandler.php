@@ -21,7 +21,7 @@ class UpdatePostHandler
         $post = $command->post;
 
         $post->setTitle($command->title);
-        $post->setUrl($command->url);
+        $post->setSlug($command->url);
 
         $this->blogRepository->save($post);
     }

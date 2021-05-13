@@ -24,20 +24,20 @@ final class TogglePostVisibilityController extends AbstractController
     }
 
     /**
-     * @param Post    $postId
-     * @param bool    $visibility
+     * @param Post $post
+     * @param bool $visibility
      *
      * @return Response
-     * @Route("/{postId}/toggle/{visibility}", name="post_toggle_visibility", methods={"GET"})
+     * @Route("/{post}/toggle/{visibility}", name="post_toggle_visibility", methods={"GET"})
      */
-    public function togglePostVisibility(Post $postId, bool $visibility): Response
+    public function togglePostVisibility(Post $post, bool $visibility): Response
     {
-        $command = new ToggleVisibilityPost($postId, $visibility);
+        $command = new ToggleVisibilityPost($post, $visibility);
 
         $this->commandBus->handle($command);
 
         return $this->redirectToRoute('blog_post', [
-            'id' => $postId->getId(),
+            'slug' => $post->getSlug(),
         ]);
     }
 }

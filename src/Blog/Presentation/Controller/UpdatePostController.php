@@ -48,12 +48,13 @@ final class UpdatePostController extends AbstractController
             $this->commandBus->handle($form->getData());
 
             return $this->redirectToRoute('blog_post',[
-                'slug' => $post->getUrl(),
+                'slug' => $post->getSlug(),
             ]);
         }
 
         return $this->render('blog/form/update_post_form.html.twig', [
             'form' => $form->createView(),
+            'post' => $post,
         ]);
     }
 }

@@ -33,19 +33,19 @@ final class UpdateContentController extends AbstractController
 
     /**
      * @param Request $request
-     * @param Post    $postId
+     * @param Post    $post
      * @param string  $contentId
      *
      * @return Response
-     * @Route("/{postId}/update/content/{contentId}", name="post_update_content", methods={"POST", "GET"})
+     * @Route("/{post}/update/content/{contentId}", name="post_update_content", methods={"POST", "GET"})
      */
-    public function updateContent(Request $request, Post $postId, string $contentId): Response
+    public function updateContent(Request $request, Post $post, string $contentId): Response
     {
         $content = $this->contentRepository->findContentsById($contentId);
         $command = new UpdateContent($content);
 
         $url = $this->generateUrl('post_update_content', [
-            'postId' => $postId->getId(),
+            'post' => $post->getId(),
             'contentId' => $contentId,
         ]);
         $form = $this->createForm(UpdateContentForm::class, $command, ['action' => $url]);
@@ -55,13 +55,13 @@ final class UpdateContentController extends AbstractController
             $this->commandBus->handle($form->getData());
 
             return $this->redirectToRoute('blog_post', [
-                'id' => $postId->getId(),
+                'slug' => $post->getSlug(),
             ]);
         }
 
         return $this->render('blog/form/update_content_form.html.twig', [
             'form' => $form->createView(),
-            'post' => $postId,
+            'post' => $post,
         ]);
     }
 }

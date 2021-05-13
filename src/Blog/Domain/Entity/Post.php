@@ -40,10 +40,10 @@ class Post
     private PersistentCollection $contents;
 
     /**
-     * @var bool
-     * @ORM\Column(type="boolean")
+     * @var DateTime|null
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private bool $visible;
+    private ?DateTime $publishedAt;
 
     /**
      * @var string
@@ -56,7 +56,7 @@ class Post
         $this->id = Uuid::uuid4()->toString();
         $this->title = $title;
         $this->createdAt = new DateTime();
-        $this->visible = false;
+        $this->publishedAt = null;
         $this->url = mb_substr($this->id, 0, 8) . '-' . $url;
     }
 
@@ -75,17 +75,17 @@ class Post
         return $this->createdAt;
     }
 
-    public function toggleVisibility(bool $visible): void
+    public function setPublishedAt(bool $publish): void
     {
-        $this->visible = $visible;
+        $this->publishedAt = $publish === true ? new DateTime() : null;
     }
 
-    public function isVisible(): bool
+    public function gotPublishedAt(): ?DateTime
     {
-        return $this->visible;
+        return $this->publishedAt;
     }
 
-    public function getUrl(): string
+    public function getSlug(): string
     {
         return $this->url;
     }
@@ -95,7 +95,7 @@ class Post
         $this->title = $title;
     }
 
-    public function setUrl(string $url): void
+    public function setSlug(string $url): void
     {
         $this->url = $url;
     }

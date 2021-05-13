@@ -30,12 +30,12 @@
             <a href="{{ path('update_blog_post', {post: post.id}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                 <i class="fas fa-pencil-alt"></i>
             </a>
-            {% if post.visible == 1 %}
-                <a href="{{ path('post_toggle_visibility', {postId: post.id, visibility: 0}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+            {% if post.gotPublishedAt is not null %}
+                <a href="{{ path('post_toggle_visibility', {post: post.id, visibility: 0}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                     <i class="fas fa-eye-slash"></i>
                 </a>
             {% else %}
-                <a href="{{ path('post_toggle_visibility', {postId: post.id, visibility: 1}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
+                <a href="{{ path('post_toggle_visibility', {post: post.id, visibility: 1}) }}" class="text-3xl mt-6 text-gray-500 hover:text-white">
                     <i class="fas fa-eye"></i>
                 </a>
             {% endif %}
@@ -59,13 +59,13 @@
                     {% endif %}
                     <span class="float-right">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <a href="{{ path('post_update_content', {postId: post.id, contentId: content.id}) }}" title="Edit Content"
+                            <a href="{{ path('post_update_content', {post: post.id, contentId: content.id}) }}" title="Edit Content"
                                class="text-base text-gray-500 hover:text-red-500">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         {% endif %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <a href="{{ path('post_delete_content', {postId: post.id, contentId: content.id}) }}" title="Delete Content"
+                            <a href="{{ path('post_delete_content', {post: post.id, contentId: content.id}) }}" title="Delete Content"
                                class="text-base text-gray-500 hover:text-red-500 deleteContent">
                                 <i class="fas fa-trash-alt"></i>
                             </a>

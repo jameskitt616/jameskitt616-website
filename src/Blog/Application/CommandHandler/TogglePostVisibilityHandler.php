@@ -20,7 +20,7 @@ class TogglePostVisibilityHandler
     public function __invoke(ToggleVisibilityPost $command)
     {
         $post = $command->post;
-        $post->toggleVisibility($command->visibility);
+        $post->setPublishedAt($command->visibility);
 
         $this->blogRepository->save($post);
     }

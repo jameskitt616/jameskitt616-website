@@ -3,7 +3,7 @@
 {% block body %}
     <div class="p-5 text-center">
         <div class="mt-24 mb-8 border rounded p-3 w-5/12 m-auto text-center">
-            <a href="{{ path('blog_list') }}" class="text-gray-400 hover:text-white float-left" title="Back">
+            <a href="{{ path('blog_post', {slug: post.slug}) }}" class="text-gray-400 hover:text-white float-left" title="Back">
                 <i class="fas fa-arrow-left"></i>
             </a>
             <div class="m-4">

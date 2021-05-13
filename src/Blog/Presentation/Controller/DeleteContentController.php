@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Blog\Presentation\Controller;
 
 use App\Blog\Application\Command\DeleteContent;
+use App\Blog\Domain\Entity\Post;
 use App\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,19 +24,19 @@ final class DeleteContentController extends AbstractController
     }
 
     /**
-     * @param string $postId
+     * @param Post   $post
      * @param string $contentId
      *
      * @return Response
-     * @Route("/{postId}/delete/content/{contentId}", name="post_delete_content", methods={"GET"})
+     * @Route("/{post}/delete/content/{contentId}", name="post_delete_content", methods={"GET"})
      */
-    public function deleteContent(string $postId, string $contentId): Response
+    public function deleteContent(Post $post, string $contentId): Response
     {
         $command = new DeleteContent($contentId);
         $this->commandBus->handle($command);
 
         return $this->redirectToRoute('blog_post', [
-            'id' => $postId,
+            'slug' => $post->getSlug(),
         ]);
     }
 }

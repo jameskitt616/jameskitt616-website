@@ -46,7 +46,7 @@ final class CreateContentController extends AbstractController
             $this->commandBus->handle($form->getData());
 
             return $this->redirectToRoute('blog_post', [
-                'id' => $post->getId(),
+                'slug' => $post->getSlug(),
             ]);
         }
 

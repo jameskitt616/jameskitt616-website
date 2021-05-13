@@ -25,7 +25,7 @@ class UpdatePost implements Command
     public function __construct(Post $post)
     {
         $this->title = $post->getTitle();
-        $this->url = $post->getUrl();
+        $this->url = $post->getSlug();
         $this->post = $post;
     }
 }
