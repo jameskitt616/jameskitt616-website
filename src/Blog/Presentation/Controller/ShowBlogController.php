@@ -26,12 +26,17 @@ final class ShowBlogController extends AbstractController
      * @param string $slug
      *
      * @return Response
-     * @Route("/blog/post/{slug}", name="blog_post")
+     * @Route("/blog/{slug}", name="blog_post")
      */
     public function show(string $slug): Response
     {
         $post = $this->postRepository->findPostBySlug($slug);
+        //TODO: remove, entity now has sorting
         $contents = $this->contentRepository->findContentsByPostId($post->getId());
+
+        if ($post === null) {
+            return $this->redirectToRoute('blog_list');
+        }
 
         return $this->render('blog/show_post.html.twig', [
             'post' => $post,

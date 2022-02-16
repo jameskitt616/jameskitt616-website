@@ -14,39 +14,33 @@ use Ramsey\Uuid\Uuid;
 class Content
 {
     /**
-     * @var string
      * @ORM\Id()
      * @ORM\Column(type="string")
      */
     private string $id;
 
     /**
-     * @var Post $post
      * @ORM\ManyToOne(targetEntity="Post", inversedBy="contents", cascade={"persist"})
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     private Post $post;
 
     /**
-     * @var string|null
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $title = null;
 
     /**
-     * @var string|null
      * @ORM\Column(type="text", nullable=true)
      */
     private ?string $text = null;
 
     /**
-     * @var string|null
      * @ORM\Column(type="text", nullable=true)
      */
     private ?string $image = null;
 
     /**
-     * @var DateTime
      * @ORM\Column(type="datetime")
      */
     private DateTime $createdAt;

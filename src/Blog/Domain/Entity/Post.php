@@ -15,47 +15,42 @@ use Doctrine\ORM\Mapping as ORM;
 class Post
 {
     /**
-     * @var string
      * @ORM\Id()
      * @ORM\Column(type="string")
      */
     private string $id;
 
     /**
-     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private string $title;
 
     /**
-     * @var DateTime
      * @ORM\Column(type="datetime")
      */
     private DateTime $createdAt;
 
     /**
      * @var PersistentCollection|Content[]
-     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"persist"}")
+     * @ORM\OrderBy({"createdAt" = "ASC"})
      */
     private PersistentCollection $contents;
 
     /**
-     * @var DateTime|null
      * @ORM\Column(type="datetime", nullable=true)
      */
     private ?DateTime $publishedAt;
 
     /**
-     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private string $url;
 
     /**
-     * @var DateTime|null
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?DateTime $deletedAt = null;
+    private ?DateTime $deletedAt;
 
     public function __construct(string $title, string $url)
     {
@@ -63,7 +58,8 @@ class Post
         $this->title = $title;
         $this->createdAt = new DateTime();
         $this->publishedAt = null;
-        $this->url = mb_substr($this->id, 0, 8) . '-' . $url;
+        $this->deletedAt = null;
+        $this->url = $url;
     }
 
     public function getId(): string
@@ -86,7 +82,7 @@ class Post
         $this->publishedAt = $publish === true ? new DateTime() : null;
     }
 
-    public function gotPublishedAt(): ?DateTime
+    public function getPublishedAt(): ?DateTime
     {
         return $this->publishedAt;
     }

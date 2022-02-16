@@ -16,9 +16,9 @@ interface PostRepository
     /**
      * @param string $slug
      *
-     * @return Post
+     * @return Post|null
      */
-    public function findPostBySlug(string $slug): Post;
+    public function findPostBySlug(string $slug): ?Post;
 
     public function save(Post $post): void;
 }

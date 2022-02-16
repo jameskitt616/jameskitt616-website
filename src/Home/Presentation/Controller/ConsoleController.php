@@ -18,7 +18,6 @@ final class ConsoleController extends AbstractController
     public function show(): Response
     {
         return $this->render('home/home.html.twig');
-//        return $this->render('home/console.html.twig');
     }
 
     /**
