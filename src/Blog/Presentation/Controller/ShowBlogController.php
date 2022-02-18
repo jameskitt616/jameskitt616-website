@@ -31,7 +31,7 @@ final class ShowBlogController extends AbstractController
     public function show(string $slug): Response
     {
         $post = $this->postRepository->findPostBySlug($slug);
-        
+
         //TODO: remove, entity now has sorting
         $contents = $this->contentRepository->findContentsByPostId($post->getId());
 

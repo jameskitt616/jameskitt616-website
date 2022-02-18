@@ -32,7 +32,7 @@ class Post
 
     /**
      * @var PersistentCollection|Content[]
-     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"persist"}")
+     * @ORM\OneToMany(targetEntity="Content", mappedBy="post", cascade={"persist"})
      * @ORM\OrderBy({"createdAt" = "ASC"})
      */
     private PersistentCollection $contents;
@@ -105,5 +105,11 @@ class Post
     public function delete(): void
     {
         $this->deletedAt = new DateTime();
+    }
+
+    public function getContents(): array
+    {
+        /** @var Content[] */
+        return $this->contents->toArray();
     }
 }
