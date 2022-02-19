@@ -8,8 +8,8 @@
         "postcss-loader": "^6.0.0",
         "regenerator-runtime": "^0.13.2",
         "sass-loader": "^9.0.3",
-        "webpack-notifier": "^1.6.0",
-        "postcss": "^7.0.39"
+        "webpack-notifier": "^1.15.0",
+        "postcss": "^8.0.9"
     },
     "license": "MIT",
     "private": false,

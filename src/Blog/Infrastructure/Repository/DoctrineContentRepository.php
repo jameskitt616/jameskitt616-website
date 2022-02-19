@@ -34,18 +34,6 @@ final class DoctrineContentRepository extends ServiceEntityRepository implements
         return $qb->getQuery()->getSingleResult();
     }
 
-    public function findContentsByPostId(string $postId): array
-    {
-        $qb = $this->_em->createQueryBuilder();
-        $qb->select('content')
-            ->from(Content::class, 'content')
-            ->where('content.post = :postId')
-            ->orderBy('content.createdAt', 'ASC')
-            ->setParameter('postId', $postId);
-
-        return $qb->getQuery()->getResult();
-    }
-
     public function save(Content $content): void
     {
         $this->_em->persist($content);

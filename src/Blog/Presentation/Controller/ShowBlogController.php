@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
@@ -12,13 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ShowBlogController extends AbstractController
 {
-    private ContentRepository $contentRepository;
-
     private PostRepository $postRepository;
 
-    public function __construct(ContentRepository $contentRepository, PostRepository $postRepository)
+    public function __construct(PostRepository $postRepository)
     {
-        $this->contentRepository = $contentRepository;
         $this->postRepository = $postRepository;
     }
 
@@ -32,16 +29,12 @@ final class ShowBlogController extends AbstractController
     {
         $post = $this->postRepository->findPostBySlug($slug);
 
-        //TODO: remove, entity now has sorting
-        $contents = $this->contentRepository->findContentsByPostId($post->getId());
-
         if ($post === null) {
             return $this->redirectToRoute('blog_list');
         }
 
         return $this->render('blog/show_post.html.twig', [
             'post' => $post,
-            'contents' => $contents,
         ]);
     }
 }
