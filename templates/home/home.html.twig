@@ -1,35 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="p-10">
-        <div class="text-3xl pb-10 text-center">
-            <b>jameskitt616</b>
-        </div>
-
-        <div class="text-xl lg:w-2/3 2xl:w-2/5 m-auto text-center">
-            <div class="flex mb-10">
-                <div class="w-1/3">
-                    <a title="Blog" href="{{ path('blog_list') }}"
-                       class="p-2 rounded bg-gray-600 hover:bg-gray-700">
-                        Blog
-                    </a>
+    <div class="pl-10 pr-10 pt-10 h-screen"
+         style="background: linear-gradient(to bottom left, #1f2026 0%, #1f2026 75%, white 75%, white 100%);">
+        <div class="m-auto">
+            <div class="flex mb-20">
+                <div class="w-3/4 text-3xl">
+                    <b>jameskitt616</b>
                 </div>
-                <div class="w-1/3">
-                    <a title="Blog" href="{{ path('contact') }}"
-                       class="p-2 rounded bg-gray-600 hover:bg-gray-700">
-                        Contact
+                <div class="w-1/4 text-right text-2xl text-gray-500">
+                    <a href="{{ path('blog_list') }}" class="hover:text-white">
+                        <b>Blog</b>
                     </a>
-                </div>
-                <div class="w-1/3">
-                    <a title="Blog" href="https://gitlab.com/jameskitt616/jameskitt616-website" target="_blank"
-                       class="p-2 rounded bg-gray-600 hover:bg-gray-700">
-                        GitLab
+                    |
+                    <a href="{{ path('contact') }}" class="hover:text-white">
+                        <b>Contact</b>
                     </a>
                 </div>
             </div>
 
-            <div>
-                <img src="{{ asset('build/images/james_r6s.png') }}" alt="missing image">
+            <div class="flex">
+                <div class="w-2/4">
+                    <div class="pl-20 pr-10">
+                        <img src="{{ asset('build/images/james_r6s.png') }}" alt="missing image">
+                    </div>
+                </div>
+                <div class="w-2/4 text-2xl text-gray-500">
+                    <div class="flex">
+                        <div class="w-1/12"><i class="fas fa-user-secret"></i></div>
+                        <div class="w-11/12">Privacy and Security enthusiast.</div>
+                    </div>
+                    <div class="flex">
+                        <div class="w-1/12"><i class="fas fa-code"></i></div>
+                        <div class="w-11/12">Developer.</div>
+                    </div>
+                    <div class="flex">
+                        <div class="w-1/12"><i class="fas fa-keyboard"></i></div>
+                        <div class="w-11/12">Gamer.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
