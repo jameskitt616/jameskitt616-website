@@ -5,30 +5,35 @@
          style="background: linear-gradient(to bottom left, #1f2026 0%, #1f2026 75%, white 75%, white 100%);">
         <div class="m-auto">
             <div class="flex mb-20">
-                <div class="w-3/4 text-3xl">
-                    <b>jameskitt616</b>
+                <div class="w-3/4 text-3xl flex">
+                    <img style="border-radius: 50%; height: 60px;" src="{{ asset('build/images/joms_ninja.png') }}" alt="missing image">
+                    <b style="color: #b256ff; margin-left: 11px; margin-top: 3px;">jameskitt616</b>
                 </div>
                 <div class="w-1/4 text-right text-2xl text-gray-500">
                     <a href="{{ path('blog_list') }}" class="hover:text-white">
                         <b>Blog</b>
                     </a>
-                    |
+                    <div class="hidden md:inline">|</div>
                     <a href="{{ path('contact') }}" class="hover:text-white">
                         <b>Contact</b>
                     </a>
                 </div>
             </div>
 
-            <div class="flex">
-                <div class="w-2/4">
-                    <div class="pl-20 pr-10">
+            <div class="lg:flex">
+                <div class="lg:w-2/4">
+                    <div class="lg:pl-20 lg:pr-10">
                         <img src="{{ asset('build/images/james_r6s.png') }}" alt="missing image">
                     </div>
                 </div>
-                <div class="w-2/4 text-2xl text-gray-500">
+                <div class="lg:w-2/4 mt-5 lg:mt-0 text-2xl text-gray-500">
                     <div class="flex">
                         <div class="w-1/12"><i class="fas fa-user-secret"></i></div>
                         <div class="w-11/12">Privacy and Security enthusiast.</div>
+                    </div>
+                    <div class="flex">
+                        <div class="w-1/12"><i class="fas fa-server"></i></div>
+                        <div class="w-11/12">Loves his Homelab.</div>
                     </div>
                     <div class="flex">
                         <div class="w-1/12"><i class="fas fa-code"></i></div>
