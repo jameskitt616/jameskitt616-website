@@ -5,13 +5,17 @@
          style="background: linear-gradient(to bottom left, #1f2026 0%, #1f2026 75%, white 75%, white 100%);">
         <div class="m-auto">
             <div class="flex mb-20">
-                <div class="w-3/4 text-3xl flex">
+                <div class="w-2/4 text-3xl flex">
                     <img style="border-radius: 50%; height: 60px;" src="{{ asset('build/images/joms_ninja.png') }}" alt="missing image">
                     <b style="color: #b256ff; margin-left: 11px; margin-top: 3px;">jameskitt616</b>
                 </div>
-                <div class="w-1/4 text-right text-2xl text-gray-500">
+                <div class="w-2/4 text-right text-2xl text-gray-500">
                     <a href="{{ path('blog_list') }}" class="hover:text-white">
                         <b>Blog</b>
+                    </a>
+                    <div class="hidden md:inline">|</div>
+                    <a href="https://homer.jameskitt616.one" class="hover:text-white" target="_blank">
+                        <b>Services</b>
                     </a>
                     <div class="hidden md:inline">|</div>
                     <a href="{{ path('contact') }}" class="hover:text-white">
