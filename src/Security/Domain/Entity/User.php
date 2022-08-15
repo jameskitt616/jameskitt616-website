@@ -4,12 +4,13 @@ namespace App\Security\Domain\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity()
  */
-class User implements UserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @var string
@@ -49,7 +50,9 @@ class User implements UserInterface
 
     public function getRoles(): array
     {
-        return [];
+        return [
+            'IS_AUTHENTICATED_REMEMBERED',
+        ];
     }
 
     public function getPassword(): string
@@ -80,5 +83,10 @@ class User implements UserInterface
     {
         $this->email = $email;
         $this->password = $password;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->getUsername();
     }
 }
