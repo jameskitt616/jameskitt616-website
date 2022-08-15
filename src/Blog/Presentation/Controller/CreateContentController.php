@@ -31,7 +31,9 @@ final class CreateContentController extends AbstractController
             'post' => $post->getId(),
         ]);
 
-        $form = $this->createForm(CreateContentForm::class, $command, ['action' => $url]);
+        $form = $this->createForm(CreateContentForm::class, $command, [
+            'action' => $url,
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commandBus->handle($form->getData());

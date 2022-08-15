@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Security\Domain\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -15,7 +17,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $id;
 
     #[ORM\Column(type: 'string', length: 100, unique: true)]
-
     private string $email;
 
     #[ORM\Column(type: 'string', length: 100)]

@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
-use App\Blog\Application\Command\CreatePost;
 use App\Blog\Application\Command\UpdatePost;
 use App\Blog\Domain\Entity\Post;
-use App\Blog\Presentation\Form\CreatePostForm;
 use App\Blog\Presentation\Form\UpdatePostForm;
 use App\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,7 +30,9 @@ final class UpdatePostController extends AbstractController
         $url = $this->generateUrl('update_blog_post', [
             'post' => $post->getId(),
         ]);
-        $form = $this->createForm(UpdatePostForm::class, $command, ['action' => $url]);
+        $form = $this->createForm(UpdatePostForm::class, $command, [
+            'action' => $url,
+        ]);
         
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

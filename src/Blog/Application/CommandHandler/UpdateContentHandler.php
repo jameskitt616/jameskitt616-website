@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Blog\Application\CommandHandler;
 
-use App\Blog\Application\Command\CreateContent;
 use App\Blog\Application\Command\UpdateContent;
-use App\Blog\Domain\Entity\Content;
 use App\Blog\Domain\Repository\ContentRepository;
 
 class UpdateContentHandler

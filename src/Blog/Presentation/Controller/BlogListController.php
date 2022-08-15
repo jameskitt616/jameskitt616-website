@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
@@ -19,9 +19,10 @@ final class BlogListController extends AbstractController
     }
 
     #[Route(path: '/blog', name: 'blog_list')]
-    public function show() : Response
+    public function show(): Response
     {
         $posts = $this->blogRepository->findAllPosts();
+
         return $this->render('blog/post_list.html.twig', [
             'posts' => $posts,
         ]);

@@ -8,8 +8,6 @@ use App\Blog\Domain\Entity\Content;
 use App\Blog\Domain\Entity\Post;
 use App\Blog\Domain\Repository\ContentRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 final class DoctrineContentRepository extends ServiceEntityRepository implements ContentRepository

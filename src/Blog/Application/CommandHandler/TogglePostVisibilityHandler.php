@@ -1,11 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Blog\Application\CommandHandler;
 
-use App\Blog\Application\Command\CreatePost;
-use App\Blog\Application\Command\DeletePost;
 use App\Blog\Application\Command\ToggleVisibilityPost;
-use App\Blog\Domain\Entity\Post;
 use App\Blog\Domain\Repository\PostRepository;
 
 class TogglePostVisibilityHandler

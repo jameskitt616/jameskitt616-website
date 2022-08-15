@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Security;
 
 use App\Security\Domain\Entity\User;
@@ -20,13 +22,9 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 class LoginFormAuthenticator implements UserAuthenticatorInterface
 {
     use TargetPathTrait;
-
     private UserRepository $userRepository;
-
     private RouterInterface $router;
-
     private CsrfTokenManagerInterface $csrfTokenManager;
-
     private UserPasswordHasherInterface $userPasswordHasher;
 
     public function __construct(UserRepository $userRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordHasherInterface $userPasswordHasher)

@@ -27,7 +27,9 @@ final class CreatePostController extends AbstractController
     {
         $command = new CreatePost();
         $url = $this->generateUrl('create_blog_post');
-        $form = $this->createForm(CreatePostForm::class, $command, ['action' => $url]);
+        $form = $this->createForm(CreatePostForm::class, $command, [
+            'action' => $url,
+        ]);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

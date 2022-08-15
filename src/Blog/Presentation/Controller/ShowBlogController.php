@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
-use App\Blog\Domain\Repository\ContentRepository;
 use App\Blog\Domain\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

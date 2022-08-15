@@ -1,12 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Blog\Application\CommandHandler;
 
-use App\Blog\Application\Command\CreatePost;
 use App\Blog\Application\Command\DeleteContent;
-use App\Blog\Application\Command\DeletePost;
-use App\Blog\Domain\Entity\Post;
-use App\Blog\Domain\Repository\PostRepository;
 use App\Blog\Domain\Repository\ContentRepository;
 
 class DeleteContentHandler

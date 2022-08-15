@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Blog\Presentation\Form;
 
 use App\Blog\Application\Command\UpdateContent;

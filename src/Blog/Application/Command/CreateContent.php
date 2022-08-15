@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Blog\Application\Command;
 
 use App\Blog\Domain\Entity\Post;
@@ -9,11 +11,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class CreateContent implements Command
 {
     public Post $post;
-
     public ?string $text = null;
-
     public ?string $title = null;
-
     public ?UploadedFile $imageFile = null;
 
     public function __construct(Post $post)

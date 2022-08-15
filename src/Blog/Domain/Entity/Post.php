@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Blog\Domain\Entity;
 
 use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
 use Ramsey\Uuid\Uuid;
-use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 class Post
@@ -26,7 +26,9 @@ class Post
      * @var PersistentCollection|Content[]
      */
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: 'Content', cascade: ['persist'])]
-    #[ORM\OrderBy(['createdAt' => 'ASC'])]
+    #[ORM\OrderBy([
+        'createdAt' => 'ASC',
+    ])]
     private PersistentCollection $contents;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
