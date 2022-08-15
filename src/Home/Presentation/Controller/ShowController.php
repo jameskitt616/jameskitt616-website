@@ -11,11 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ShowController extends AbstractController
 {
-    /**
-     * @return Response
-     * @Route("/", name="home")
-     */
-    public function show(): Response
+    #[Route(path: '/', name: 'home')]
+    public function show() : Response
     {
         return $this->render('home/home.html.twig');
     }

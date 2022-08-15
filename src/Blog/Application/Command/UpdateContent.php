@@ -8,29 +8,14 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UpdateContent implements Command
 {
-    /**
-     * @var Content $content
-     */
     public Content $content;
 
-    /**
-     * @var string|null
-     */
     public ?string $title = null;
 
-    /**
-     * @var string|null
-     */
     public ?string $text = null;
 
-    /**
-     * @var UploadedFile|null
-     */
     public ?UploadedFile $imageFile = null;
 
-    /**
-     * @var bool
-     */
     public bool $removePicture;
 
     public function __construct(Content $content)
@@ -40,9 +25,6 @@ class UpdateContent implements Command
         $this->text = $content->getText();
     }
 
-    /**
-     * @return string
-     */
     public function getData(): ?string
     {
         if ($this->imageFile !== null) {

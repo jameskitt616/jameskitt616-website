@@ -19,16 +19,10 @@ final class ShowBlogController extends AbstractController
         $this->postRepository = $postRepository;
     }
 
-    /**
-     * @param string $slug
-     *
-     * @return Response
-     * @Route("/blog/{slug}", name="blog_post")
-     */
+    #[Route(path: '/blog/{slug}', name: 'blog_post')]
     public function show(string $slug): Response
     {
         $post = $this->postRepository->findPostBySlug($slug);
-
         if ($post === null) {
             return $this->redirectToRoute('blog_list');
         }

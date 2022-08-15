@@ -7,19 +7,10 @@ use App\Command;
 
 class UpdatePost implements Command
 {
-    /**
-     * @var string
-     */
     public string $title;
 
-    /**
-     * @var string
-     */
     public string $url;
 
-    /**
-     * @var Post $post
-     */
     public Post $post;
 
     public function __construct(Post $post)

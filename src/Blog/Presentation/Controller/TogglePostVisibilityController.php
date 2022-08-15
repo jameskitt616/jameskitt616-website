@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
@@ -11,9 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/admin")
- */
+#[Route(path: '/admin')]
 final class TogglePostVisibilityController extends AbstractController
 {
     private CommandBus $commandBus;
@@ -23,17 +21,10 @@ final class TogglePostVisibilityController extends AbstractController
         $this->commandBus = $commandBus;
     }
 
-    /**
-     * @param Post $post
-     * @param bool $visibility
-     *
-     * @return Response
-     * @Route("/{post}/toggle/{visibility}", name="post_toggle_visibility", methods={"GET"})
-     */
+    #[Route(path: '/{post}/toggle/{visibility}', name: 'post_toggle_visibility', methods: ['GET'])]
     public function togglePostVisibility(Post $post, bool $visibility): Response
     {
         $command = new ToggleVisibilityPost($post, $visibility);
-
         $this->commandBus->handle($command);
 
         return $this->redirectToRoute('blog_post', [

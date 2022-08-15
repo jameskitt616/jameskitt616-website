@@ -11,11 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ContactController extends AbstractController
 {
-    /**
-     * @return Response
-     * @Route("/contact", name="contact")
-     */
-    public function show(): Response
+    #[Route(path: '/contact', name: 'contact')]
+    public function show() : Response
     {
         return $this->render('contact/contact.html.twig');
     }

@@ -7,28 +7,18 @@ use Ramsey\Uuid\Uuid;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- * @ORM\Entity()
- */
+#[ORM\Entity]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * @var string
-     * @ORM\Id()
-     * @ORM\Column(type="string", length=40)
-     */
+    #[ORM\Id]
+    #[ORM\Column(type: 'string', length: 40)]
     private string $id;
 
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=100, unique=true)
-     */
+    #[ORM\Column(type: 'string', length: 100, unique: true)]
+
     private string $email;
 
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=100)
-     */
+    #[ORM\Column(type: 'string', length: 100)]
     private string $password;
 
     public function __construct(string $email, string $password)
@@ -58,11 +48,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getPassword(): string
     {
         return $this->password;
-    }
-
-    public function getSalt(): void
-    {
-        // we`re using bcrypt
     }
 
     public function eraseCredentials(): void

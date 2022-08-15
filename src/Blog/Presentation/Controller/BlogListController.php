@@ -18,14 +18,10 @@ final class BlogListController extends AbstractController
         $this->blogRepository = $blogRepository;
     }
 
-    /**
-     * @return Response
-     * @Route("/blog", name="blog_list")
-     */
-    public function show(): Response
+    #[Route(path: '/blog', name: 'blog_list')]
+    public function show() : Response
     {
         $posts = $this->blogRepository->findAllPosts();
-
         return $this->render('blog/post_list.html.twig', [
             'posts' => $posts,
         ]);

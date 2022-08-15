@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
@@ -16,13 +16,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/admin")
- */
+#[Route(path: '/admin')]
 final class UpdateContentController extends AbstractController
 {
     private CommandBus $commandBus;
-
     private ContentRepository $contentRepository;
 
     public function __construct(CommandBus $commandBus, ContentRepository $contentRepository)
@@ -31,25 +28,17 @@ final class UpdateContentController extends AbstractController
         $this->contentRepository = $contentRepository;
     }
 
-    /**
-     * @param Request $request
-     * @param Post    $post
-     * @param string  $contentId
-     *
-     * @return Response
-     * @Route("/{post}/update/content/{contentId}", name="post_update_content", methods={"POST", "GET"})
-     */
+    #[Route(path: '/{post}/update/content/{contentId}', name: 'post_update_content', methods: ['POST', 'GET'])]
     public function updateContent(Request $request, Post $post, string $contentId): Response
     {
         $content = $this->contentRepository->findContentsById($contentId);
         $command = new UpdateContent($content);
-
         $url = $this->generateUrl('post_update_content', [
             'post' => $post->getId(),
             'contentId' => $contentId,
         ]);
+        
         $form = $this->createForm(UpdateContentForm::class, $command, ['action' => $url]);
-
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commandBus->handle($form->getData());

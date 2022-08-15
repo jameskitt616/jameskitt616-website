@@ -7,9 +7,6 @@ use App\Command;
 
 class DeletePost implements Command
 {
-    /**
-     * @var Post $post
-     */
     public Post $post;
 
     public function __construct(Post $post)

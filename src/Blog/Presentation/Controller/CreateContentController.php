@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
@@ -13,9 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/admin")
- */
+#[Route(path: '/admin')]
 final class CreateContentController extends AbstractController
 {
     private CommandBus $commandBus;
@@ -25,22 +23,15 @@ final class CreateContentController extends AbstractController
         $this->commandBus = $commandBus;
     }
 
-    /**
-     * @param Request $request
-     * @param Post    $post
-     *
-     * @return Response
-     * @Route("/{post}/create/content", name="post_create_content", methods={"POST", "GET"})
-     */
+    #[Route(path: '/{post}/create/content', name: 'post_create_content', methods: ['POST', 'GET'])]
     public function createContent(Request $request, Post $post): Response
     {
         $command = new CreateContent($post);
-
         $url = $this->generateUrl('post_create_content', [
             'post' => $post->getId(),
         ]);
-        $form = $this->createForm(CreateContentForm::class, $command, ['action' => $url]);
 
+        $form = $this->createForm(CreateContentForm::class, $command, ['action' => $url]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commandBus->handle($form->getData());

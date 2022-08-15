@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
@@ -12,9 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/admin")
- */
+#[Route(path: '/admin')]
 final class CreatePostController extends AbstractController
 {
     private CommandBus $commandBus;
@@ -24,16 +22,10 @@ final class CreatePostController extends AbstractController
         $this->commandBus = $commandBus;
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return Response
-     * @Route("/blog/create/post", name="create_blog_post", methods={"POST", "GET"})
-     */
+    #[Route(path: '/blog/create/post', name: 'create_blog_post', methods: ['POST', 'GET'])]
     public function createPost(Request $request): Response
     {
         $command = new CreatePost();
-
         $url = $this->generateUrl('create_blog_post');
         $form = $this->createForm(CreatePostForm::class, $command, ['action' => $url]);
 

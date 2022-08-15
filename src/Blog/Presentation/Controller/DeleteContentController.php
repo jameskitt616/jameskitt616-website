@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
@@ -11,9 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/admin")
- */
+#[Route(path: '/admin')]
 final class DeleteContentController extends AbstractController
 {
     private CommandBus $commandBus;
@@ -23,13 +21,7 @@ final class DeleteContentController extends AbstractController
         $this->commandBus = $commandBus;
     }
 
-    /**
-     * @param Post   $post
-     * @param string $contentId
-     *
-     * @return Response
-     * @Route("/{post}/delete/content/{contentId}", name="post_delete_content", methods={"GET"})
-     */
+    #[Route(path: '/{post}/delete/content/{contentId}', name: 'post_delete_content', methods: ['GET'])]
     public function deleteContent(Post $post, string $contentId): Response
     {
         $command = new DeleteContent($contentId);

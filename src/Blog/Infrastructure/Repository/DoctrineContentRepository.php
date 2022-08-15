@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Infrastructure\Repository;
 
@@ -19,10 +19,6 @@ final class DoctrineContentRepository extends ServiceEntityRepository implements
         parent::__construct($registry, Post::class);
     }
 
-    /**
-     * @throws NonUniqueResultException
-     * @throws NoResultException
-     */
     public function findContentsById(string $contentId): Content
     {
         $qb = $this->_em->createQueryBuilder();

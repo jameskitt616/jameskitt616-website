@@ -8,24 +8,12 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class CreateContent implements Command
 {
-    /**
-     * @var Post $post
-     */
     public Post $post;
 
-    /**
-     * @var string|null
-     */
     public ?string $text = null;
 
-    /**
-     * @var string|null
-     */
     public ?string $title = null;
 
-    /**
-     * @var UploadedFile|null
-     */
     public ?UploadedFile $imageFile = null;
 
     public function __construct(Post $post)
@@ -33,9 +21,6 @@ class CreateContent implements Command
         $this->post = $post;
     }
 
-    /**
-     * @return string
-     */
     public function getData(): ?string
     {
         if ($this->imageFile !== null) {

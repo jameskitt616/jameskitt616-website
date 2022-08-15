@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Blog\Presentation\Controller;
 
@@ -15,9 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/admin")
- */
+#[Route(path: '/admin')]
 final class UpdatePostController extends AbstractController
 {
     private CommandBus $commandBus;
@@ -27,27 +25,20 @@ final class UpdatePostController extends AbstractController
         $this->commandBus = $commandBus;
     }
 
-    /**
-     * @param Request $request
-     * @param Post    $post
-     *
-     * @return Response
-     * @Route("/blog/update/post/{post}", name="update_blog_post", methods={"POST", "GET"})
-     */
+    #[Route(path: '/blog/update/post/{post}', name: 'update_blog_post', methods: ['POST', 'GET'])]
     public function createPost(Request $request, Post $post): Response
     {
         $command = new UpdatePost($post);
-
         $url = $this->generateUrl('update_blog_post', [
             'post' => $post->getId(),
         ]);
         $form = $this->createForm(UpdatePostForm::class, $command, ['action' => $url]);
-
+        
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commandBus->handle($form->getData());
 
-            return $this->redirectToRoute('blog_post',[
+            return $this->redirectToRoute('blog_post', [
                 'slug' => $post->getSlug(),
             ]);
         }

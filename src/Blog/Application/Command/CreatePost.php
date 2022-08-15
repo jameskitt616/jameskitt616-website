@@ -6,13 +6,7 @@ use App\Command;
 
 class CreatePost implements Command
 {
-    /**
-     * @var string
-     */
     public string $title;
 
-    /**
-     * @var string
-     */
     public string $url;
 }
