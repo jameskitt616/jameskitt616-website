@@ -9,8 +9,8 @@ services:
       - .:/application
       - ./docker/mysql/mysql-overrides.cnf:/etc/mysql/conf.d/mysql-overrides.cnf
     environment:
-      - MYSQL_ROOT_PASSWORD=secret
-      - MYSQL_DATABASE=website
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=
       - MYSQL_USER=
       - MYSQL_PASSWORD=
     ports:
